@@ -2,15 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
-use App\Http\Controllers\MenuController;
+use App\Http\Controllers\AdminMenuController;
 
-Route::get('/', [homeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // MENU
-// Route::get('/menu', [MenuController::class, 'index']->name('menu'));
-// Route::get('/menu/create', [MenuController::class, 'create']->name('menu.create'));
-// Route::get('/menu/edit{id}', [MenuController::class, 'edit']->name('menu.edit'));
-
-// Route::post('/menu/store', [MenuController::class, 'store'])->name('menu.store');
-// Route::put('/menu/update/{id}', [MenuController::class, 'update'])->name('menu.update');
-// Route::delete('/menu/destroy{id}', [MenuController::class, 'destroy'])->name('menu.destroy');
+Route::get('/admin/menus', [AdminMenuController::class, 'index'])->name('admin.menus.index');
+Route::get('/admin/menus/create', [AdminMenuController::class, 'create'])->name('admin.menus.create');
+Route::post('/admin/menus', [AdminMenuController::class, 'store'])->name('admin.menus.store');
+Route::get('/admin/menus/{menu}/edit', [AdminMenuController::class, 'edit'])->name('admin.menus.edit');
+Route::put('/admin/menus/{menu}', [AdminMenuController::class, 'update'])->name('admin.menus.update');
+Route::delete('/admin/menus/{menu}', [AdminMenuController::class, 'destroy'])->name('admin.menus.destroy');
