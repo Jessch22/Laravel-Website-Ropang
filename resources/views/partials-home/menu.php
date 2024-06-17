@@ -6,7 +6,7 @@
       <div class="container section-title" data-aos="fade-up">
         <h2>Menu</h2>
         <p>Check Our Tasty Menu</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
@@ -21,7 +21,7 @@
               <li data-filter=".filter-lain">lainnya</li>
             </ul>
           </div>
-        </div><!-- Menu Filters -->
+        </div>
 
         <div class="row isotope-container" data-aos="fade-up" data-aos-delay="200">
 

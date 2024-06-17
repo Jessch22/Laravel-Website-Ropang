@@ -3,8 +3,8 @@
 
 <!-- Section Title -->
 <div class="container section-title" data-aos="fade-up">
-  <h2>Specials</h2>
-  <p>Check Our Specials</p>
+  <h2>Recommendation</h2>
+  <p>Check Our Recommendation</p>
 </div><!-- End Section Title -->
 
 <div class="container" data-aos="fade-up" data-aos-delay="100">

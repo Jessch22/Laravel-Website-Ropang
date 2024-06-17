@@ -5,28 +5,23 @@
 
   <div class="row gy-4">
     <div class="col-lg-6 order-1 order-lg-2">
-      <img src="assets/img/bg-1.jpg" class="img-fluid about-img" alt="" sizes="">
+      <img src="assets/img/bg-about.png" class="img-fluid about-img" alt="" sizes="">
     </div>
     <div class="col-lg-6 order-2 order-lg-1 content">
       <h3>Selamat Datang di Ritter Talent </h3>
       <p class="fst-italic">
         Ritter Talent: Lebih dari Sekadar Makanan
       </p>
-      <ul>
-        <li><i class="bi bi-check2-all"></i> <span>Kelezatan Kuliner yang Unik</span></li>
-        <li><i class="bi bi-check2-all"></i> <span>Pelayanan yang Ramah dan Profesional</span></li>
-        <li><i class="bi bi-check2-all"></i> 
-          <span>Ritter Talent menawarkan menu yang beragam dengan pilihan hidangan untuk setiap selera. 
-            Dari masakan tradisional hingga kreasi kontemporer, setiap hidangan disiapkan dengan teliti 
-            dan penuh dedikasi.</span></li>
-      </ul>
-      <p>
-        Selamat datang di Ritter Talent, tempat di mana setiap gigitan adalah petualangan rasa! 
-        Kami menggabungkan tradisi kuliner dengan inovasi modern, menciptakan hidangan yang menggugah 
-        selera dan menginspirasi. Dari bahan-bahan lokal yang segar hingga presentasi yang memukau, 
-        kami berkomitmen untuk memberikan pengalaman bersantap yang tak terlupakan. Ayo, bergabunglah 
-        dengan kami dan temukan keajaiban kuliner di setiap piring!
+      <p style="text-align:justify">
+        Ritter Talent telah berdiri sejak 2017 dan berkomitmen untuk memberikan pelayanan terbaik 
+        kepada pelanggan. Ritter Talent menawarkan lebih dari 40 menu makanan yang sangat lengkap.
       </p>
+      <ul>
+        <li><i class="bi bi-check2-all"></i> <span>Beragam menu yang menarik</span></li>
+        <li><i class="bi bi-check2-all"></i> <span>Pelayanan cepat dan ramah</span></li>
+        <li><i class="bi bi-check2-all"></i> <span>Harga yang terjangkau</span></li>
+        <li><i class="bi bi-check2-all"></i> <span>Pengalaman yang tak terlupakan</span></li>
+      </ul>
     </div>
   </div>
 </div>
