@@ -378,6 +378,11 @@
   color: color-mix(in srgb, var(--default-color), transparent 50%);
 }
 
+.menu .btn {
+  background-color: var(--accent-color);
+  border: var(--accent-color);
+}
+
 /*--------------------------------------------------------------
 # Specials Section
 --------------------------------------------------------------*/
