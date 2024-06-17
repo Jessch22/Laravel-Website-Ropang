@@ -17,7 +17,7 @@
           <h1 class="sitename">Ritter Talent</h1>
         </a>
 
-        <?php include __DIR__ . '/../layouts/navbar.php'; ?>
+        @include('layouts.navbar')
 
         <a class="btn-book-a-table d-none d-xl-block" href="#book-a-table">Book a Table</a>
 
