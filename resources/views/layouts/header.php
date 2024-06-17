@@ -27,5 +27,6 @@
   <link href="assets/css/footer.css" rel="stylesheet">
   <link href="assets/css/preloader.css" rel="stylesheet">
   <link href="assets/css/scrolltop.css" rel="stylesheet">
+  <link href="assets/css/root.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 </head>

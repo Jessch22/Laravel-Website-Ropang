@@ -2,7 +2,7 @@
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(12, 9, 9, 0.61);
+  background-color: var(--nav-color);
   color: var(--default-color);
   transition: all 0.5s;
   z-index: 997;
@@ -23,7 +23,7 @@
 .header .topbar .contact-info i a,
 .header .topbar .contact-info i span {
   padding-left: 5px;
-  color: var(--default-color);
+  color: var(--background-color);
 }
 
 @media (max-width: 575px) {
@@ -40,7 +40,7 @@
 }
 
 .header .topbar .contact-info i a:hover {
-  color: var(--accent-color);
+  color: var(--contrast-color);
   text-decoration: underline;
 }
 
@@ -122,10 +122,4 @@
 
 .scrolled .header .branding {
   border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
-}
-
-/* Global Header on Scroll
-------------------------------*/
-.scrolled .header {
-  --background-color: #cd3232;
 }

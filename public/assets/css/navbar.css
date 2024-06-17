@@ -175,7 +175,7 @@
   .navmenu a:hover,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
+    color: var(--nav-color);
   }
 
   .navmenu .active i,
@@ -203,7 +203,7 @@
 
   .navmenu .dropdown>.dropdown-active {
     display: block;
-    background-color: rgba(33, 37, 41, 0.03);
+    background-color: rgba(189, 202, 215, 0.03);
   }
 
   .mobile-nav-active {
@@ -211,7 +211,7 @@
   }
 
   .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
+    color: #ffffff;
     position: absolute;
     font-size: 32px;
     top: 15px;
@@ -230,6 +230,7 @@
 
   .mobile-nav-active .navmenu>ul {
     display: block;
+    color: #ffffff;
   }
 }
 
