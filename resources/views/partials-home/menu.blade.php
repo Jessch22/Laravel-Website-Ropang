@@ -32,6 +32,9 @@
             <div class="menu-ingredients">
                 {{ $menu->ingredients }}
             </div>
+            <div class="menu-actions custom-flex-end">
+              <button class="btn btn-primary btn-add-to-cart" data-menu-id="{{ $menu->id }}"><i class="fa fa-cart-plus"></i></button>
+            </div>
           </div>
         @empty
           <div class="col-lg-12">
@@ -47,7 +50,7 @@
 
     <div class="row">
       <div class="col-lg-12 d-flex justify-content-center">
-        <a href="#" class="btn btn-primary">Order Now</a>
+        <a href="#" class="btn btn-see-cart btn-primary">See Cart</a>
       </div>
     </div>
 

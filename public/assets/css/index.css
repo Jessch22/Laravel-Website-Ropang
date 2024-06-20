@@ -379,8 +379,39 @@
 }
 
 .menu .btn {
+  font-family: var(--default-font);
+  font-weight: bold;
+  border-radius: 50px;
+}
+
+.menu .btn-add-to-cart {
+  padding:10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
   background-color: var(--accent-color);
   border: var(--accent-color);
+}
+
+.custom-flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu .btn-see-cart{
+  margin-top: 40px;
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--default-color);
+}
+
+.menu .btn-see-cart:hover{
+  background-color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+.menu .btn-add-to-cart:hover {
+  background-color: #b33e3e;
 }
 
 /*--------------------------------------------------------------
