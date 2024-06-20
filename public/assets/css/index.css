@@ -550,7 +550,7 @@
   }
 }
 
-.book-a-table .php-email-form .error-message {
+.book-a-table .php-email-form .error-message1 {
   display: none;
   background: #df1529;
   color: #ffffff;
@@ -560,7 +560,7 @@
   font-weight: 600;
 }
 
-.book-a-table .php-email-form .sent-message {
+.book-a-table .php-email-form .sent-message1 {
   display: none;
   color: #ffffff;
   background: #059652;
@@ -570,7 +570,7 @@
   font-weight: 600;
 }
 
-.book-a-table .php-email-form .loading {
+.book-a-table .php-email-form .loading1 {
   display: none;
   background: var(--background-color);
   text-align: center;
@@ -578,7 +578,7 @@
   margin-bottom: 24px;
 }
 
-.book-a-table .php-email-form .loading:before {
+.book-a-table .php-email-form .loading1:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -884,7 +884,7 @@
   height: 100%;
 }
 
-.contact .php-email-form .error-message {
+.contact .php-email-form .error-message2 {
   display: none;
   background: #df1529;
   color: #ffffff;
@@ -894,7 +894,7 @@
   font-weight: 600;
 }
 
-.contact .php-email-form .sent-message {
+.contact .php-email-form .sent-message2 {
   display: none;
   color: #ffffff;
   background: #059652;
@@ -904,7 +904,7 @@
   font-weight: 600;
 }
 
-.contact .php-email-form .loading {
+.contact .php-email-form .loading2 {
   display: none;
   background: var(--background-color);
   text-align: center;
@@ -912,7 +912,7 @@
   margin-bottom: 24px;
 }
 
-.contact .php-email-form .loading:before {
+.contact .php-email-form .loading2:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
