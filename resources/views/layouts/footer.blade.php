@@ -26,9 +26,9 @@
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About us</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="{{ route('faq') }}">FAQ</a></li>
+            <li><a href="{{ route('tos') }}">Terms of service</a></li>
+            <li><a href="{{ route('ppolicy') }}">Privacy policy</a></li>
           </ul>
         </div>
         

@@ -13,3 +13,17 @@ Route::post('/admin/menus', [AdminMenuController::class, 'store'])->name('admin.
 Route::get('/admin/menus/{menu}/edit', [AdminMenuController::class, 'edit'])->name('admin.menus.edit');
 Route::put('/admin/menus/{menu}', [AdminMenuController::class, 'update'])->name('admin.menus.update');
 Route::delete('/admin/menus/{menu}', [AdminMenuController::class, 'destroy'])->name('admin.menus.destroy');
+
+
+//FOOTER - OTHER PAGE
+Route::get('/FAQ', function () {
+  return view('other-page.faq');
+})->name('faq');
+
+Route::get('/TermsofServices', function () {
+  return view('other-page.tos');
+})->name('tos');
+
+Route::get('/privacyPolicy', function () {
+  return view('other-page.ppolicy');
+})->name('ppolicy');
