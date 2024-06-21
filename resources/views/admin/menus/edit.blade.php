@@ -14,6 +14,10 @@
             <input type="text" id="price" name="price" class="form-control" value="{{ $menu->price }}" required>
         </div>
         <div class="form-group">
+            <label for="text">ImageUrl</label>
+            <input type="text" id="image" name="image" class="form-control" value="{{ $menu->image }}" required>
+        </div>
+        <div class="form-group">
             <label for="category">Category</label>
             <input type="text" id="category" name="category" class="form-control" value="{{ $menu->category }}" required>
         </div>
