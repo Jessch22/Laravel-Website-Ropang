@@ -14,6 +14,16 @@ Route::get('/admin/menus/{menu}/edit', [AdminMenuController::class, 'edit'])->na
 Route::put('/admin/menus/{menu}', [AdminMenuController::class, 'update'])->name('admin.menus.update');
 Route::delete('/admin/menus/{menu}', [AdminMenuController::class, 'destroy'])->name('admin.menus.destroy');
 
+//USER
+Route::get('/signin', function () {
+  return view('user.signin');
+})->name('signin');
+
+Route::get('/signup', function () {
+  return view('user.signup');
+})->name('signup');
+
+
 
 //FOOTER - OTHER PAGE
 Route::get('/FAQ', function () {
