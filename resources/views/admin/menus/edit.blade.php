@@ -21,7 +21,6 @@
             <label for="category">Category</label>
             <input type="text" id="category" name="category" class="form-control" value="{{ $menu->category }}" required>
         </div>
-        <!-- tambahkan field lainnya sesuai kebutuhan -->
         <button type="submit" class="btn btn-primary">Update Menu</button>
     </form>
 @endsection
