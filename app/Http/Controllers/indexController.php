@@ -7,7 +7,7 @@ use App\Models\MenuItem;
 use App\Models\Contact;
 use App\Models\Reservation;
 
-class homeController extends Controller
+class indexController extends Controller
 {
     //index
     public function index()
