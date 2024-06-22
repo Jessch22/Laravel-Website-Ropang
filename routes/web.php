@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\indexController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\AdminMenuController;
 
 //HOME
-Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 //BOOK A TABLE AND CONTACT
-Route::post('/book-table', [IndexController::class, 'bookTable'])->name('bookTable');
-Route::post('/contact', [IndexController::class, 'storeContact'])->name('contact.store');
+Route::post('/book-table', [HomeController::class, 'bookTable'])->name('bookTable');
+Route::post('/contact', [HomeController::class, 'storeContact'])->name('contact.store');
 
 // MENU
 Route::get('/admin/menus', [AdminMenuController::class, 'index'])->name('admin.menus.index');
@@ -43,6 +43,3 @@ Route::get('/TermsofServices', function () {
 Route::get('/privacyPolicy', function () {
   return view('other-page.ppolicy');
 })->name('ppolicy');
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
