@@ -25,6 +25,7 @@
                 <a href="#home" class="menu-item active"><i class="fas fa-home icon"></i>Home</a>
                 <a href="#menu" class="menu-item"><i class="fas fa-utensils icon"></i>Menu</a>
                 <a href="#users" class="menu-item"><i class="fas fa-users icon"></i>User</a>
+                <a href="#reservations" class="menu-item"><i class="fas fa-calendar-alt icon"></i>Reservation</a>
                 <a href="#contact" class="menu-item"><i class="fas fa-envelope icon"></i>Contact</a>
             </nav>
         </aside>
@@ -33,7 +34,7 @@
         <div class="content" id="content">
             <div id="home" class="content-section">
                 <header class="header">
-                    <div class="date">Friday 25 June 2024</div>
+                    <div class="date">Friday 27 June 2024</div>
                     <div class="search">
                         <input type="text" placeholder="Search here...">
                     </div>
@@ -111,164 +112,37 @@
                     </table>
                 </div>
             </div>
+
+            <div id="reservations" class="content-section" style="display:none;">
+                <h2>Reservation</h2>
+                <button class="add-btn" onclick="addReservation()">Add Reservation</button>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Customer Name</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Guests</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservation-table-body">
+                            <!-- Reservation data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <div id="contact" class="content-section" style="display:none;">
                 <h2>Contact</h2>
                 <p>Contact page content goes here.</p>
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuItems = document.querySelectorAll('.menu-item');
-            const contents = document.querySelectorAll('.content-section');
 
-            menuItems.forEach(menu => {
-                menu.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    // Remove active class from all menu items
-                    menuItems.forEach(menu => menu.classList.remove('active'));
 
-                    // Add active class to clicked menu item
-                    this.classList.add('active');
-
-                    // Hide all contents
-                    contents.forEach(content => content.style.display = 'none');
-
-                    // Show target content
-                    const targetId = this.getAttribute('href').substring(1);
-                    document.getElementById(targetId).style.display = 'block';
-                });
-            });
-
-            // Show default content (home)
-            document.getElementById('home').style.display = 'block';
-
-            // Example menu data
-            let menu = [
-                { name: 'Pizza', description: 'Delicious cheese pizza', price: '$10', category: 'Main Course' },
-                { name: 'Salad', description: 'Fresh vegetable salad', price: '$5', category: 'Appetizer' },
-                { name: 'Ice Cream', description: 'Vanilla ice cream with chocolate syrup', price: '$3', category: 'Dessert' }
-            ];
-
-            const menuTableBody = document.getElementById('menu-table-body');
-
-            function renderMenuTable() {
-                menuTableBody.innerHTML = '';
-                menu.forEach((item, index) => {
-                    const row = document.createElement('tr');
-
-                    const cellNo = document.createElement('td');
-                    cellNo.textContent = index + 1;
-                    row.appendChild(cellNo);
-
-                    const cellName = document.createElement('td');
-                    cellName.textContent = item.name;
-                    row.appendChild(cellName);
-
-                    const cellDescription = document.createElement('td');
-                    cellDescription.textContent = item.description;
-                    row.appendChild(cellDescription);
-
-                    const cellPrice = document.createElement('td');
-                    cellPrice.textContent = item.price;
-                    row.appendChild(cellPrice);
-
-                    const cellCategory = document.createElement('td');
-                    cellCategory.textContent = item.category;
-                    row.appendChild(cellCategory);
-
-                    const cellAction = document.createElement('td');
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.textContent = 'Delete';
-                    deleteBtn.className = 'delete-btn';
-                    deleteBtn.onclick = function() {
-                        deleteMenuItem(index);
-                    };
-                    cellAction.appendChild(deleteBtn);
-                    row.appendChild(cellAction);
-
-                    menuTableBody.appendChild(row);
-                });
-            }
-
-            function addMenuItem() {
-                const name = prompt('Enter menu name:');
-                const description = prompt('Enter menu description:');
-                const price = prompt('Enter menu price:');
-                const category = prompt('Enter menu category:');
-                if (name && description && price && category) {
-                    menu.push({ name, description, price, category });
-                    renderMenuTable();
-                }
-            }
-
-            function deleteMenuItem(index) {
-                menu.splice(index, 1);
-                renderMenuTable();
-            }
-
-            renderMenuTable();
-
-            // Example user data
-            let users = [
-                { name: 'John Doe', role: 'Admin', purchases: 5 },
-                { name: 'Jane Smith', role: 'User', purchases: 3 }
-            ];
-
-            const userTableBody = document.getElementById('user-table-body');
-
-            function renderUserTable() {
-                userTableBody.innerHTML = '';
-                users.forEach((user, index) => {
-                    const row = document.createElement('tr');
-
-                    const cellNo = document.createElement('td');
-                    cellNo.textContent = index + 1;
-                    row.appendChild(cellNo);
-
-                    const cellName = document.createElement('td');
-                    cellName.textContent = user.name;
-                    row.appendChild(cellName);
-
-                    const cellRole = document.createElement('td');
-                    cellRole.textContent = user.role;
-                    row.appendChild(cellRole);
-
-                    const cellPurchases = document.createElement('td');
-                    cellPurchases.textContent = user.purchases;
-                    row.appendChild(cellPurchases);
-
-                    const cellAction = document.createElement('td');
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.textContent = 'Delete';
-                    deleteBtn.className = 'delete-btn';
-                    deleteBtn.onclick = function() {
-                        deleteUser(index);
-                    };
-                    cellAction.appendChild(deleteBtn);
-                    row.appendChild(cellAction);
-
-                    userTableBody.appendChild(row);
-                });
-            }
-
-            function addUser() {
-                const name = prompt('Enter user name:');
-                const role = prompt('Enter user role:');
-                const purchases = prompt('Enter number of purchases:');
-                if (name && role && purchases) {
-                    users.push({ name, role, purchases: parseInt(purchases, 10) });
-                    renderUserTable();
-                }
-            }
-
-            function deleteUser(index) {
-                users.splice(index, 1);
-                renderUserTable();
-            }
-
-            renderUserTable();
-        });
-    </script>
+    <script src="./js/fungsi.js"></script>
 </body>
 </html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .navbar {
+            background-color: #00796b;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .menu-item {
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+        .navbar .menu-item:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            display: flex;
+            flex: 1;
+            height: calc(100vh - 50px);
+            overflow: hidden;
+        }
+        .sidebar {
+            background-color: #e0f7fa;
+            width: 200px;
+            height: 100%;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            position: fixed;
+            left: 0;
+            top: 50px;
+            bottom: 0;
+            z-index: 1000;
+        }
+        .sidebar .logo {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .sidebar .menu {
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar .menu .menu-item {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar .menu .menu-item:hover,
+        .sidebar .menu .menu-item.active {
+            background-color: #b2ebf2;
+            border-radius: 4px;
+        }
+        .sidebar .menu .icon {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            margin-left: 200px;
+            overflow-y: auto;
+        }
+        .content h2 {
+            margin-top: 0;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .add-btn, .delete-btn {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-btn {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">Admin Dashboard</div>
+        <div class="navbar-menu">
+            <a href="#home" class="menu-item active"><i class="fas fa-home icon"></i>Home</a>
+            <a href="#menu" class="menu-item"><i class="fas fa-utensils icon"></i>Menu</a>
+            <a href="#users" class="menu-item"><i class="fas fa-users icon"></i>User</a>
+            <a href="#reservations" class="menu-item"><i class="fas fa-calendar-alt icon"></i>Reservation</a>
+            <a href="#contact" class="menu-item"><i class="fas fa-envelope icon"></i>Contact</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <aside class="sidebar">
+            <div class="logo">D</div>
+            <nav class="menu">
+                <a href="#home" class="menu-item active"><i class="fas fa-home icon"></i>Home</a>
+                <a href="#menu" class="menu-item"><i class="fas fa-utensils icon"></i>Menu</a>
+                <a href="#users" class="menu-item"><i class="fas fa-users icon"></i>User</a>
+                <a href="#reservations" class="menu-item"><i class="fas fa-calendar-alt icon"></i>Reservation</a>
+                <a href="#contact" class="menu-item"><i class="fas fa-envelope icon"></i>Contact</a>
+            </nav>
+        </aside>
+        <div class="content" id="content">
+            <div id="home" class="content-section">
+                <h2><i class="fas fa-utensils icon"></i> Home</h2>
+                <p>Welcome to the admin dashboard.</p>
+            </div>
+            <div id="menu" class="content-section" style="display:none;">
+                <h2>Menu</h2>
+                <button class="add-btn" onclick="addMenuItem()">Add Menu Item</button>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="menu-table-body">
+                            <!-- Menu data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="users" class="content-section" style="display:none;">
+                <h2>User</h2>
+                <button class="add-btn" onclick="addUser()">Add User</button>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Purchases</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-table-body">
+                            <!-- User data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="reservations" class="content-section" style="display:none;">
+                <h2>Reservation</h2>
+                <button class="add-btn" onclick="addReservation()">Add Reservation</button>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Customer Name</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Guests</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservation-table-body">
+                            <!-- Reservation data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="contact" class="content-section" style="display:none;">
+                <h2>Contact</h2>
+                <p>Contact page content goes here.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            const contents = document.querySelectorAll('.content-section');
+
+            menuItems.forEach(menu => {
+                menu.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    // Remove active class from all menu items
+                    menuItems.forEach(menu => menu.classList.remove('active'));
+
+                    // Add active class to clicked menu item
+                    this.classList.add('active');
+
+                    // Hide all contents
+                    contents.forEach(content => content.style.display = 'none');
+
+                    // Show target content
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).style.display = 'block';
+                });
+            });
+
+            // Show default content (home)
+            document.getElementById('home').style.display = 'block';
+
+            // Example menu data
+            let menu = [
+                { name: 'Pizza', description: 'Delicious cheese pizza', price: '$10', category: 'Main Course' },
+                { name: 'Salad', description: 'Fresh vegetable salad', price: '$5', category: 'Appetizer' },
+                { name: 'Ice Cream', description: 'Vanilla ice cream with chocolate syrup', price: '$3', category: 'Dessert' }
+            ];
+
+            const menuTableBody = document.getElementById('menu-table-body');
+
+            function renderMenuTable() {
+                menuTableBody.innerHTML = '';
+                menu.forEach((item, index) => {
+                    const row = document.createElement('tr');
+
+                    const cellNo = document.createElement('td');
+                    cellNo.textContent = index + 1;
+                    row.appendChild(cellNo);
+
+                    const cellName = document.createElement('td');
+                    cellName.textContent = item.name;
+                    row.appendChild(cellName);
+
+                    const cellDescription = document.createElement('td');
+                    cellDescription.textContent = item.description;
+                    row.appendChild(cellDescription);
+
+                    const cellPrice = document.createElement('td');
+                    cellPrice.textContent = item.price;
+                    row.appendChild(cellPrice);
+
+                    const cellCategory = document.createElement('td');
+                    cellCategory.textContent = item.category;
+                    row.appendChild(cellCategory);
+
+                    const cellAction = document.createElement('td');
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.className = 'delete-btn';
+                    deleteBtn.onclick = function() {
+                        deleteMenuItem(index);
+                    };
+                    cellAction.appendChild(deleteBtn);
+                    row.appendChild(cellAction);
+
+                    menuTableBody.appendChild(row);
+                });
+            }
+
+            function addMenuItem() {
+                const name = prompt('Enter menu name:');
+                const description = prompt('Enter menu description:');
+                const price = prompt('Enter menu price:');
+                const category = prompt('Enter menu category:');
+                if (name && description && price && category) {
+                    menu.push({ name, description, price, category });
+                    renderMenuTable();
+                }
+            }
+
+            function deleteMenuItem(index) {
+                menu.splice(index, 1);
+                renderMenuTable();
+            }
+
+            renderMenuTable();
+
+            // Example user data
+            let users = [
+                { name: 'John Doe', role: 'Admin', purchases: 5 },
+                { name: 'Jane Smith', role: 'User', purchases: 3 }
+            ];
+
+            const userTableBody = document.getElementById('user-table-body');
+
+            function renderUserTable() {
+                userTableBody.innerHTML = '';
+                users.forEach((user, index) => {
+                    const row = document.createElement('tr');
+
+                    const cellNo = document.createElement('td');
+                    cellNo.textContent = index + 1;
+                    row.appendChild(cellNo);
+
+                    const cellName = document.createElement('td');
+                    cellName.textContent = user.name;
+                    row.appendChild(cellName);
+
+                    const cellRole = document.createElement('td');
+                    cellRole.textContent = user.role;
+                    row.appendChild(cellRole);
+
+                    const cellPurchases = document.createElement('td');
+                    cellPurchases.textContent = user.purchases;
+                    row.appendChild(cellPurchases);
+
+                    const cellAction = document.createElement('td');
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.className = 'delete-btn';
+                    deleteBtn.onclick = function() {
+                        deleteUser(index);
+                    };
+                    cellAction.appendChild(deleteBtn);
+                    row.appendChild(cellAction);
+
+                    userTableBody.appendChild(row);
+                });
+            }
+
+            function addUser() {
+                const name = prompt('Enter user name:');
+                const role = prompt('Enter user role:');
+                const purchases = prompt('Enter number of purchases:');
+                if (name && role && purchases) {
+                    users.push({ name, role, purchases: parseInt(purchases, 10) });
+                    renderUserTable();
+                }
+            }
+
+            function deleteUser(index) {
+                users.splice(index, 1);
+                renderUserTable();
+            }
+
+            renderUserTable();
+
+            // Example reservation data
+            let reservations = [
+                { customerName: 'Alice Johnson', date: '2024-06-20', time: '18:00', guests: 2 },
+                { customerName: 'Bob Williams', date: '2024-06-21', time: '19:00', guests: 4 }
+            ];
+
+            const reservationTableBody = document.getElementById('reservation-table-body');
+
+            function renderReservationTable() {
+                reservationTableBody.innerHTML = '';
+                reservations.forEach((reservation, index) => {
+                    const row = document.createElement('tr');
+
+                    const cellNo = document.createElement('td');
+                    cellNo.textContent = index + 1;
+                    row.appendChild(cellNo);
+
+                    const cellCustomerName = document.createElement('td');
+                    cellCustomerName.textContent = reservation.customerName;
+                    row.appendChild(cellCustomerName);
+
+                    const cellDate = document.createElement('td');
+                    cellDate.textContent = reservation.date;
+                    row.appendChild(cellDate);
+
+                    const cellTime = document.createElement('td');
+                    cellTime.textContent = reservation.time;
+                    row.appendChild(cellTime);
+
+                    const cellGuests = document.createElement('td');
+                    cellGuests.textContent = reservation.guests;
+                    row.appendChild(cellGuests);
+
+                    const cellAction = document.createElement('td');
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.className = 'delete-btn';
+                    deleteBtn.onclick = function() {
+                        deleteReservation(index);
+                    };
+                    cellAction.appendChild(deleteBtn);
+                    row.appendChild(cellAction);
+
+                    reservationTableBody.appendChild(row);
+                });
+            }
+
+            function addReservation() {
+                const customerName = prompt('Enter customer name:');
+                const date = prompt('Enter reservation date (YYYY-MM-DD):');
+                const time = prompt('Enter reservation time (HH:MM):');
+                const guests = prompt('Enter number of guests:');
+                if (customerName && date && time && guests) {
+                    reservations.push({ customerName, date, time, guests: parseInt(guests, 10) });
+                    renderReservationTable();
+                }
+            }
+
+            function deleteReservation(index) {
+                reservations.splice(index, 1);
+                renderReservationTable();
+            }
+
+            renderReservationTable();
+        });
+    </script>
+</body>
+</html>
