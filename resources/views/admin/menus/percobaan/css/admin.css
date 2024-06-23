@@ -44,6 +44,7 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+
 /* navnar atas */
 .navbar {
     background-color: #000000;
@@ -68,8 +69,10 @@ body {
     height: calc(100vh - 50px);
     overflow: hidden;
 }
+
+/* sidebar */
 .sidebar {
-    background-color: #a3bec1;
+    background-color: var(--contrast-color);
     width: 200px;
     height: 100%;
     padding-top: 20px;
@@ -99,7 +102,7 @@ body {
 /*  */
 .sidebar .menu .menu-item:hover,
 .sidebar .menu .menu-item.active {
-    background-color: #b2ebf2;
+    background-color: white;
     border-radius: 4px;
 }
 .sidebar .menu .icon {
@@ -176,7 +179,7 @@ th {
 }
 
 .greeting {
-    background-color: #d7e9ef;
+    background-color: var(--contrast-color);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -209,3 +212,5 @@ th {
 .task-info {
     text-align: left;
 }
+
+
