@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\homeController;
+use App\Http\Controllers\indexController;
 use App\Http\Controllers\AdminMenuController;
 
 //HOME
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [IndexController::class, 'index'])->name('home');
 
 //BOOK A TABLE AND CONTACT
-Route::post('/book-table', [HomeController::class, 'bookTable'])->name('bookTable');
-Route::post('/contact', [HomeController::class, 'storeContact'])->name('contact.store');
+Route::post('/book-table', [IndexController::class, 'bookTable'])->name('bookTable');
+Route::post('/contact', [IndexController::class, 'storeContact'])->name('contact.store');
 
 // MENU
 Route::get('/admin/menus', [AdminMenuController::class, 'index'])->name('admin.menus.index');
@@ -19,17 +19,6 @@ Route::post('/admin/menus', [AdminMenuController::class, 'store'])->name('admin.
 Route::get('/admin/menus/{menu}/edit', [AdminMenuController::class, 'edit'])->name('admin.menus.edit');
 Route::put('/admin/menus/{menu}', [AdminMenuController::class, 'update'])->name('admin.menus.update');
 Route::delete('/admin/menus/{menu}', [AdminMenuController::class, 'destroy'])->name('admin.menus.destroy');
-
-//USER
-Route::get('/signin', function () {
-  return view('user.signin');
-})->name('signin');
-
-Route::get('/signup', function () {
-  return view('user.signup');
-})->name('signup');
-
-
 
 //FOOTER - OTHER PAGE
 Route::get('/FAQ', function () {
