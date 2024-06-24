@@ -9,40 +9,56 @@
       </div><!-- End Section Title -->
 
       <div class="container">
+        @if(session('success'))
+            <div class="alert1 alert-success1">
+                {{ session('success') }}
+            </div>
+        @endif
 
-        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
-          <div class="row gy-4">
+        @if($errors->any())
+            <div class="alert1 alert-danger1">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+    <form id="bookTableForm" action="{{ route('bookTable') }}" method="post" role="form" class="php-email-form">
+        @csrf
+        <div class="row gy-4">
             <div class="col-lg-4 col-md-6">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
             </div>
             <div class="col-lg-4 col-md-6">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
             </div>
             <div class="col-lg-4 col-md-6">
-              <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
             </div>
             <div class="col-lg-4 col-md-6">
-              <input type="date" name="date" class="form-control" id="date" placeholder="Date" required="">
+                <input type="date" name="date" class="form-control" id="date" placeholder="Date" required="">
             </div>
             <div class="col-lg-4 col-md-6">
-              <input type="time" class="form-control" name="time" id="time" placeholder="Time" required="">
+                <input type="time" class="form-control" name="time" id="time" placeholder="Time" required="">
             </div>
             <div class="col-lg-4 col-md-6">
-              <input type="number" class="form-control" name="people" id="people" placeholder="# of people" required="">
+                <input type="number" class="form-control" name="people" id="people" placeholder="# of people" required="">
             </div>
-          </div>
-          <div class="form-group mt-3">
+        </div>
+        <div class="form-group mt-3">
             <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
-          </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Book a Table</button></div>
-        </form>
+        </div>
+        <div class="mb-3">
+            <div class="loading1" style="display: none;">Loading</div>
+            <div class="error-message1"></div>
+            <div class="sent-message1" style="display: none;">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+        </div>
+        <div class="text-center"><button type="submit">Book a Table</button></div>
+    </form>
+</div>
 
-      </div>
     
     <!-- Contact Section -->
     <section id="contact" class="contact section">
@@ -96,8 +112,25 @@
 
           </div>
 
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          <div class="container">
+            @if(session('success'))
+                <div class="alert2 alert-success2">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if($errors->any())
+                <div class="alert2 alert-danger2">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form id="contactForm" action="{{ route('contact.store') }}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            @csrf
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -117,9 +150,9 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <div class="loading2">Loading</div>
+                  <div class="error-message2"></div>
+                  <div class="sent-message2">Your message has been sent. Thank you!</div>
 
                   <button type="submit">Send Message</button>
                 </div>
@@ -130,3 +163,119 @@
         </div>
       </div>
     </section><!-- /Contact Section -->
+
+    <style type="text/css">
+  .alert1, .alert2 {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px;
+    border-radius: 0.375rem;
+  }
+
+  .alert-success1, .alert-success2 {
+    color: #0a3622;
+    background-color: #d1e7dd;
+    border-color: #a3cfbb;
+  }
+
+  .alert-danger1, .alert-danger2 {
+    color: #58151c;
+    background-color: #f8d7da;
+    border-color: #f1aeb5;
+  }
+
+  .alert1, .alert2 {
+    display: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function showAlert(alertClass, success) {
+      var alertElement = document.querySelector(alertClass);
+      alertElement.style.display = 'block';
+      alertElement.innerHTML = success ? success : 'Something went wrong.';
+      setTimeout(function() {
+        alertElement.style.display = 'none';
+      }, 5000);
+    }
+
+    var bookTableForm = document.getElementById('bookTableForm');
+    if (bookTableForm) {
+      bookTableForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var formData = new FormData(bookTableForm);
+        var loading = bookTableForm.querySelector('.loading1');
+        var error = bookTableForm.querySelector('.error-message1');
+        var success = bookTableForm.querySelector('.sent-message1');
+
+        loading.style.display = 'block';
+        error.style.display = 'none';
+        success.style.display = 'none';
+
+        fetch(bookTableForm.action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          loading.style.display = 'none';
+          if (response.ok) {
+            success.style.display = 'block';
+            bookTableForm.reset();
+            window.scrollTo({ top: bookTableForm.offsetTop, behavior: 'smooth' });
+            showAlert('.alert1', response.message);
+          } else {
+            error.style.display = 'block';
+            showAlert('.alert1', response.error);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          error.style.display = 'block';
+          showAlert('.alert1');
+        });
+      });
+    }
+
+    var contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var formData = new FormData(contactForm);
+        var loading = contactForm.querySelector('.loading2');
+        var error = contactForm.querySelector('.error-message2');
+        var success = contactForm.querySelector('.sent-message2');
+
+        loading.style.display = 'block';
+        error.style.display = 'none';
+        success.style.display = 'none';
+
+        fetch(bookTableForm.action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          loading.style.display = 'none';
+          if (response.ok) {
+            success.style.display = 'block';
+            bookTableForm.reset();
+            window.scrollTo({ top: bookTableForm.offsetTop, behavior: 'smooth' });
+            showAlert('.alert1', response.message);contactForm;
+          } else {
+            error.style.display = 'block';
+            showAlert('.alert1', response.error);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          error.style.display = 'block';
+          showAlert('.alert1');
+        });
+      });
+    }
+  });
+</script>
