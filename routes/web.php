@@ -32,3 +32,10 @@ Route::get('/TermsofServices', function () {
 Route::get('/privacyPolicy', function () {
   return view('other-page.ppolicy');
 })->name('ppolicy');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
