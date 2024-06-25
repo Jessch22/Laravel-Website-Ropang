@@ -14,11 +14,7 @@
 
     @include('partials-home.menu')
 
-    @include('partials-home.special')
-
     @include('partials-home.whyus')
-
-    @include('partials-home.event')
 
     @include('partials-home.booktable')
 

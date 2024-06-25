@@ -47,7 +47,7 @@
         <div class="col-lg-4 col-md-12 footer-newsletter">
           <h4>Our Newsletter</h4>
           <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-          <form action="/forms/newsletter.php" method="post" class="php-email-form">
+          <form id="newsletter-form"action="newsletter.php" method="post" class="php-email-form">
             <div class="newsletter-form">
               <input type="email" name="email" placeholder="Enter your email">
               <input type="submit" value="Subscribe"></div>

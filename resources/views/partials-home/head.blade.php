@@ -19,8 +19,6 @@
 
         @include('layouts.navbar')
 
-        <a class="btn-book-a-table d-none d-xl-block" href="#book-a-table">Book a Table</a>
-
       </div>
     </div>
   </header>

@@ -29,6 +29,8 @@
         </li>
       </ul>
     </div>
+
+    
     <div class="col-lg-9 mt-4 mt-lg-0">
       <div class="tab-content">
         <div class="tab-pane active show" id="specials-tab-1">
@@ -43,6 +45,8 @@
             </div>
           </div>
         </div>
+
+
         <div class="tab-pane" id="specials-tab-2">
           <div class="row">
             <div class="col-lg-8 details order-2 order-lg-1">
@@ -55,6 +59,8 @@
             </div>
           </div>
         </div>
+
+
         <div class="tab-pane" id="specials-tab-3">
           <div class="row">
             <div class="col-lg-8 details order-2 order-lg-1">
@@ -67,6 +73,8 @@
             </div>
           </div>
         </div>
+
+
         <div class="tab-pane" id="specials-tab-4">
           <div class="row">
             <div class="col-lg-8 details order-2 order-lg-1">
