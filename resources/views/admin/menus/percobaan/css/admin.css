@@ -100,10 +100,11 @@ body {
     display: flex;
     align-items: center;
 }
-/*  */
+
+/* sidebar  */
 .sidebar .menu .menu-item:hover,
 .sidebar .menu .menu-item.active {
-    background-color: white;
+    background-color: var(--nav-color);
     border-radius: 4px;
 }
 .sidebar .menu .icon {

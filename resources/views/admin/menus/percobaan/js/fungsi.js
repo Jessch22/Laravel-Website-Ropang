@@ -1,3 +1,4 @@
+// admin page fungsi
 // fungsi page move
 document.addEventListener('DOMContentLoaded', function() {
     const menuItems = document.querySelectorAll('.menu-item');
@@ -215,3 +216,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderReservationTable();
 });
+
+

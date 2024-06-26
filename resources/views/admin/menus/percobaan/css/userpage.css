@@ -38,47 +38,65 @@ root.css
 }
 
 body {
-    background: rgb(99, 39, 120)
+  font-family: Arial, sans-serif;
+  background-color: var(--contrast-color);
+  margin: 0;
+  padding: 0;
 }
 
-.form-control:focus {
-    box-shadow: none;
-    border-color: #BA68C8
-    
+h2 {
+  text-align: center;
+  font-family: var(--heading-font);
 }
 
-.profile-button {
-    background: rgb(99, 39, 120);
-    box-shadow: none;
-    border: none
+
+/* kotak besar */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.profile-button:hover {
-    background: #682773
+/* profile */
+.form-group {
+  margin-bottom: 15px;
 }
-
-.profile-button:focus {
-    background: #682773;
-    box-shadow: none
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
 }
-
-.profile-button:active {
-    background: #682773;
-    box-shadow: none
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
 }
-
-.back:hover {
-    color: #682773;
-    cursor: pointer
+.form-group textarea {
+  resize: vertical;
 }
-
-.labels {
-    font-size: 11px
+.form-group .profile-picture {
+  display: flex;
+  align-items: center;
 }
-
-.add-experience:hover {
-    background: #BA68C8;
-    color: #fff;
-    cursor: pointer;
-    border: solid 1px #BA68C8
+.form-group .profile-picture img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+.form-group .profile-picture input {
+  flex: 1;
+}
+.submit-btn {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.submit-btn:hover {
+  background-color: #004d40;
 }
