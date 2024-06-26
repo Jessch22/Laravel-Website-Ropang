@@ -1,0 +1,83 @@
+root.css
+/* Fonts */
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Playfair Display",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* aa */
+/* Global Colors*/
+
+:root { 
+  --background-color: #e7e7e7; /* Background color */
+  --default-color: rgba(0, 0, 0, 0.7); /* Text content */
+  --heading-color: #000000; /* Headings, subheadings and title */
+  --accent-color: #e45050; /* Buttons, links, and other elements that need to stand out */
+  --contrast-color: #ffeded; /*For elements when the background color is one of the heading, accent, or default colors. */
+}
+
+/* Nav Menu Colors */
+:root {
+  --nav-color: #e45050;  /* navmenu links */
+  --nav-hover-color: #000000; /* hovered color */
+  --nav-before: #711515;
+}
+
+/* Footer */
+:root{
+  --footer-color: #0c0b09;
+  --footer-text: #ffffff;
+  --footer-hover: #c84343;
+  --heading-footer: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+    background: var(--accent-color);
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
