@@ -1,4 +1,5 @@
-// admin page fungsi
+// khusus admin page fungsi
+
 // fungsi page move
 document.addEventListener('DOMContentLoaded', function() {
     const menuItems = document.querySelectorAll('.menu-item');
