@@ -1,3 +1,5 @@
+// just card 
+
 function updateQuantity(itemId, change) {
     const quantityInput = document.getElementById(`${itemId}-quantity`);
     let quantity = parseInt(quantityInput.value);

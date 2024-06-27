@@ -68,7 +68,7 @@ body {
 .back-link {
     display: block;
     margin-bottom: 20px;
-    color: #007bff;
+    color: var(--nav-color);
     text-decoration: none;
 }
 
@@ -112,7 +112,7 @@ p {
 .item-controls button {
     width: 30px;
     height: 30px;
-    background-color: #007bff;
+    background-color: var(--accent-color);
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -191,7 +191,7 @@ p {
 button[type="button"] {
     width: 100%;
     padding: 15px;
-    background-color: #007bff;
+    background-color: var(--accent-color);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -200,7 +200,7 @@ button[type="button"] {
 }
 
 button[type="button"]:hover {
-    background-color: #0056b3;
+    background-color: #104923;
 }
 
 
