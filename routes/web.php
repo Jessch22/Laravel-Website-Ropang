@@ -33,6 +33,11 @@ Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.ad
 Route::get('/cart', [CartController::class, 'viewCart'])->name('other-page.cart');
 Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
+// CART
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'viewCart'])->name('other-page.cart');
+Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
 //FOOTER - OTHER PAGE
 Route::get('/FAQ', function () {
   return view('other-page.faq');

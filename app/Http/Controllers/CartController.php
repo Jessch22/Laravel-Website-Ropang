@@ -31,7 +31,16 @@ class CartController extends Controller
 
     public function viewCart()
     {
-        return view('other-page.cart');
+        $cart = session('cart');
+        $total = 0;
+
+        if (!empty($cart)) {
+            foreach ($cart as $id => $details) {
+                $total += $details['quantity'] * $details['price'];
+            }
+        }
+
+    return view('other-page.cart', ['total' => $total]);
     }
 
     public function checkout(Request $request)
