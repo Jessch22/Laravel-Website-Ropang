@@ -35,7 +35,9 @@
                 {{ $menu->description }}
             </div>
             <div class="menu-actions custom-flex-end">
+
               <button class="btn btn-primary btn-add-to-cart" onclick="addToCart({{ $menu->id }})"><i class="fa fa-cart-plus"></i></button>
+
             </div>
           </div>
         @empty
@@ -52,24 +54,12 @@
 
     <div class="row">
       <div class="col-lg-12 d-flex justify-content-center">
-        <a href="#" class="btn btn-see-cart btn-primary">See Cart</a>
+        <a href="/cart" class="btn btn-see-cart btn-primary">See Cart</a>
       </div>
     </div>
 
   </div><!-- isotope-layout -->
 </section><!-- Menu Section -->
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-  function addToCart(menuId) {
-      axios.post('{{ route('cart.add') }}', {
-          menu_id: menuId
-      })
-      .then(response => {
-          alert(response.data.status);
-      })
-      .catch(error => {
-          console.error(error);
-      });
-  }
-</script>
+<script src="assets/js/addtocart.js"></script>
+
