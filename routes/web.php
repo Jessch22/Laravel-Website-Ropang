@@ -25,6 +25,9 @@ Route::delete('admin/users/{id}', [AdminController::class, 'destroyUser'])->name
 Route::delete('admin/reservation/{id}', [AdminController::class, 'destroyReservation'])->name('admin.reservation.destroy');
 Route::delete('admin/contact/{id}', [AdminController::class, 'destroyContact'])->name('admin.contact.destroy');
 
+Route::get('/admin/menus/{id}/edit', [AdminController::class, 'edit'])->name('admin.menus.edit');
+Route::put('/admin/menus/{id}', [AdminController::class, 'update'])->name('admin.menus.update');
+
 // CART
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'viewCart'])->name('other-page.cart');
