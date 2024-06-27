@@ -8,12 +8,12 @@
     @else
         <table>
             <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Category</th>
+            <tr>
+                    <th><a href="#" onclick="sortTable('number')">No.</a></th>
+                    <th><a href="#" onclick="sortTable('name')">Name</a></th>
+                    <th><a href="#" onclick="sortTable('description')">Description</a></th>
+                    <th><a href="#" onclick="sortTable('price')">Price</a></th>
+                    <th><a href="#" onclick="sortTable('category')">Category</a></th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -47,3 +47,37 @@
         @endif
     </div>
 </div>
+
+<script>
+    function sortTable(sortType) {
+        const table = document.getElementById('menu-table-body');
+        const rows = Array.from(table.rows);
+        
+        let compareFunction;
+
+        switch(sortType) {
+            case 'number':
+                compareFunction = (a, b) => a.cells[0].innerText - b.cells[0].innerText;
+                break;
+            case 'name':
+                compareFunction = (a, b) => a.cells[1].innerText.localeCompare(b.cells[1].innerText);
+                break;
+            case 'description':
+                compareFunction = (a, b) => a.cells[2].innerText.localeCompare(b.cells[2].innerText);
+                break;
+            case 'price':
+                compareFunction = (a, b) => parseFloat(a.cells[3].innerText) - parseFloat(b.cells[3].innerText);
+                break;
+            case 'category':
+                compareFunction = (a, b) => a.cells[4].innerText.localeCompare(b.cells[4].innerText);
+                break;
+            default:
+                return;
+        }
+
+        rows.sort(compareFunction);
+
+        // Re-append rows in the sorted order
+        rows.forEach(row => table.appendChild(row));
+    }
+</script>
