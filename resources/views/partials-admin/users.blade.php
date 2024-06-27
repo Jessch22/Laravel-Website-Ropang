@@ -47,19 +47,15 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     function updateUserRole(role, userId) {
-    // Kirim permintaan AJAX ke backend untuk memperbarui role
     axios.post('/updateUserRole', {
         role: role,
         userId: userId
     })
     .then(response => {
         console.log(response.data);
-        // Beri feedback ke pengguna atau perbarui tabel jika perlu
-        // Misalnya, perbarui tabel secara dinamis setelah perubahan berhasil
     })
     .catch(error => {
         console.error(error);
-        // Handle error
     });
     }
 
