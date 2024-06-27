@@ -1,3 +1,7 @@
+@php
+use Illuminate\Support\Facades\Auth;
+@endphp
+
 <nav id="navmenu" class="navmenu">
   <ul>
     <li><a href="#hero" class="active">Home<br></a></li>
