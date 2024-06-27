@@ -11,7 +11,7 @@
                     <th>No.</th>
                     <th>Customer Name</th>
                     <th>Email</th>
-                    <th>Pgone</th>
+                    <th>Phone</th>
                     <th>Date</th>
                     <th>Time</th>
                     <th>People</th>
