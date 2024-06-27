@@ -22,7 +22,7 @@ Route::delete('admin/users/{id}', [AdminController::class, 'destroyUser'])->name
 
 // CART
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
-Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+Route::get('/cart', [CartController::class, 'viewCart'])->name('other-page.cart');
 Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
 
