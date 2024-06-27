@@ -94,8 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Example user data
     let users = [
-        { name: 'John Doe', role: 'Admin', purchases: 5 },
-        { name: 'Jane Smith', role: 'User', purchases: 3 }
+        { name: 'Jay Damendra', role: 'Admin', purchases: 5 },
+        { name: 'Jane Smith', role: 'User', purchases: 3 },
+        { name: 'James Andrean', role: 'User', purchases: 8 }
     ];
 
     const userTableBody = document.getElementById('user-table-body');

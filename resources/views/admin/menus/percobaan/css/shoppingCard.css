@@ -38,7 +38,6 @@ root.css
 }
 
 body {
-    font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
     margin: 0;
@@ -75,10 +74,12 @@ body {
 
 h2 {
     margin-top: 0;
+    font-family:var(--heading-font) ;
 }
 
 p {
     margin: 10px 0;
+    font-family: var(--default-font);
 }
 
 .cart-items {
@@ -171,7 +172,7 @@ p {
 }
 
 .input-group input {
-    width: 100%;
+    width: 96%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -201,3 +202,6 @@ button[type="button"] {
 button[type="button"]:hover {
     background-color: #0056b3;
 }
+
+
+

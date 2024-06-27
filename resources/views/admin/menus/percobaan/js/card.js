@@ -27,7 +27,7 @@ function updateTotal() {
     itemPrices.forEach(price => {
         subtotal += parseFloat(price.textContent.replace('$', ''));
     });
-    const shipping = 20.00;
+    const shipping = 1.00; // biaya admin
     const total = subtotal + shipping;
     document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
     document.getElementById('shipping').textContent = `$${shipping.toFixed(2)}`;
