@@ -33,31 +33,12 @@ class AdminController extends Controller
     }
 
     // MENU
-
     public function destroy($id)
     {
         $menu = MenuItem::findOrFail($id);
         $menu->delete();
 
-        return redirect()->route('partials-admin.menus')->with('success', 'Menu deleted successfully.');
-    }
-
-    public function edit($id)
-    {
-        $menu = MenuItem::findOrFail($id);
-        return view('screens.editmenu', compact('menu'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $menu = MenuItem::findOrFail($id);
-        $menu->name = $request->input('name');
-        $menu->description = $request->input('description');
-        $menu->price = $request->input('price');
-        $menu->category = $request->input('category');
-        $menu->save();
-
-        return redirect()->route('partials-admin.menus')->with('success', 'Menu updated successfully.');
+        return redirect()->route('screens.admindashboard')->with('success', 'Menu deleted successfully.');
     }
 
     // USER

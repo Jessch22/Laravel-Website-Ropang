@@ -1,6 +1,6 @@
 <div id="users" class="content-section" style="display:none;">
     <h2>User</h2>
-    <button class="add-btn" onclick="addUser()">Add User</button>
+    <a href="" class="add-btn">Add User</a>
     <div class="table-container">
         <table>
             <thead>
