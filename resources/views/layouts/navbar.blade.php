@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Auth;
 
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
       @if(Auth::user()->role == 'admin' || Auth::user()->role == 'owner')
-        <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Go to Admin Page</a></li>
+        <li><a class="dropdown-item" href="{{ route('screens.admindashboard') }}">Go to Admin Page</a></li>
       @else
         <li><a class="dropdown-item" href="#">Profile</a></li>
       @endif

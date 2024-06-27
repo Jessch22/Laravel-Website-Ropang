@@ -1,0 +1,202 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    font-family: var(--default-font);
+}
+/* navnar atas */
+.navbar {
+    background-color: var(--sidebar-color);
+    padding: 10px;
+    color: var(--footer-text);
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family:var(--default-font) ;
+}
+.navbar {
+    font-size: 25px;
+    position: relative;
+    text-align: center;
+}
+
+/* main bagian sidebar*/
+.main-content {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 50px);
+    overflow: hidden;
+}
+.sidebar {
+    background-color: var(--sidebar-color);
+    width: 200px;
+    height: 100%;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(203, 11, 11, 0.1);
+    position: fixed;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    z-index: 1000;
+}
+.sidebar .logo {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.sidebar .menu {
+    display: flex;
+    flex-direction: column;
+}
+.sidebar .menu .menu-item {
+    text-decoration: none;
+    color: var(--sidebar-text);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+/*  */
+.sidebar .menu .menu-item:hover,
+.sidebar .menu .menu-item.active,
+.sidebar .special-menu:hover,
+.sidebar .special-menu.active
+{
+    background-color: #ffffff;
+    border-radius: 4px;
+    /* color: var(--footer-text); */
+}
+
+.sidebar .menu .icon, .sidebar .icon {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar .special-menu {
+    text-decoration: none;
+    color: var(--sidebar-text);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* content bagian*/
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 200px;
+    overflow-y: auto;
+}
+
+/* content baguan home dll */
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 200px;
+    overflow-y: auto;
+    background-color: var(--bg-admin-color);
+}
+.content h2 {
+    margin-top: 0;
+}
+.table-container {
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid var(--border-table-admin);
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: var(--bg-table-admin);
+}
+.add-btn, .delete-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.delete-btn {
+    background-color: #e53935;
+}
+
+
+/* header untuk home  */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header .date {
+    font-size: 1.2rem;
+    color: var(--heading-color);
+}
+
+.header .search input {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+.greeting {
+    background-color: var(--sidebar-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px var(--box-shadow-admin);
+}
+
+.dasboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.task {
+    background-color: var(--bg-admin-color);
+    padding: 20px;
+    border-radius: 10px;
+    /* width: 30%; */
+    flex: 1 1 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* icon */
+.task-icon {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.task-info {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.task-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--nav-before);
+}
+
+.task-label {
+    font-size: 14px;
+    color: var(--nav-before);
+}
