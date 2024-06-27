@@ -38,7 +38,7 @@ root.css
 }
 
 body {
-    background-color: #f9f9f9;
+    background-color: var(--background-color);
     color: #333;
     margin: 0;
     display: flex;
