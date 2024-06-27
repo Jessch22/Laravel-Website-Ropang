@@ -8,11 +8,14 @@ class CreatePurchasesTable extends Migration
 {
     public function up()
     {
-        Schema::create('purchases', function (Blueprint $table) {$table->id();
+        Schema::create('purchases', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('menu_item_id')->constrained()->onDelete('cascade');
             $table->integer('quantity');
             $table->integer('total_price');
+            $table->text('notes')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }
@@ -22,4 +25,3 @@ class CreatePurchasesTable extends Migration
         Schema::dropIfExists('purchases');
     }
 }
-
