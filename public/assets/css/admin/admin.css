@@ -1,55 +1,16 @@
-root.css
-/* Fonts */
-:root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Playfair Display",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
-}
-
-/* aa */
-/* Global Colors*/
-
-:root { 
-  --background-color: #e7e7e7; /* Background color */
-  --default-color: rgba(0, 0, 0, 0.7); /* Text content */
-  --heading-color: #000000; /* Headings, subheadings and title */
-  --accent-color: #e45050; /* Buttons, links, and other elements that need to stand out */
-  --contrast-color: #ffeded; /*For elements when the background color is one of the heading, accent, or default colors. */
-}
-
-/* Nav Menu Colors */
-:root {
-  --nav-color: #e45050;  /* navmenu links */
-  --nav-hover-color: #000000; /* hovered color */
-  --nav-before: #711515;
-}
-
-/* Footer */
-:root{
-  --footer-color: #0c0b09;
-  --footer-text: #ffffff;
-  --footer-hover: #c84343;
-  --heading-footer: #ffffff;
-}
-
-/* Smooth scroll */
-:root {
-  scroll-behavior: smooth;
-}
-
 body {
     margin: 0;
     display: flex;
     flex-direction: column;
     height: 100vh;
     overflow: hidden;
+    font-family: var(--default-font);
 }
-
 /* navnar atas */
 .navbar {
-    background-color: #000000;
+    background-color: var(--sidebar-color);
     padding: 10px;
-    color: white;
+    color: var(--footer-text);
     align-items: center;
     position: sticky;
     top: 0;
@@ -69,14 +30,12 @@ body {
     height: calc(100vh - 50px);
     overflow: hidden;
 }
-
-/* sidebar */
 .sidebar {
-    background-color: var(--background-color);
+    background-color: var(--sidebar-color);
     width: 200px;
     height: 100%;
     padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 5px rgba(203, 11, 11, 0.1);
     position: fixed;
     left: 0;
     top: 50px;
@@ -87,7 +46,6 @@ body {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
-    font-family: var(--nav-font);
 }
 .sidebar .menu {
     display: flex;
@@ -95,22 +53,35 @@ body {
 }
 .sidebar .menu .menu-item {
     text-decoration: none;
-    color: #333;
+    color: var(--sidebar-text);
     padding: 10px 20px;
     display: flex;
     align-items: center;
 }
-
-/* sidebar  */
+/*  */
 .sidebar .menu .menu-item:hover,
-.sidebar .menu .menu-item.active {
-    background-color: var(--nav-color);
+.sidebar .menu .menu-item.active,
+.sidebar .special-menu:hover,
+.sidebar .special-menu.active
+{
+    background-color: #ffffff;
     border-radius: 4px;
+    /* color: var(--footer-text); */
 }
-.sidebar .menu .icon {
+
+.sidebar .menu .icon, .sidebar .icon {
     margin-right: 10px;
     width: 20px;
     height: 20px;
+}
+
+.sidebar .special-menu {
+    text-decoration: none;
+    color: var(--sidebar-text);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
 }
 
 /* content bagian*/
@@ -127,6 +98,7 @@ body {
     padding: 20px;
     margin-left: 200px;
     overflow-y: auto;
+    background-color: var(--bg-admin-color);
 }
 .content h2 {
     margin-top: 0;
@@ -139,17 +111,17 @@ table {
     border-collapse: collapse;
 }
 table, th, td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-table-admin);
 }
 th, td {
     padding: 8px;
     text-align: left;
 }
 th {
-    background-color: #f2f2f2;
+    background-color: var(--bg-table-admin);
 }
 .add-btn, .delete-btn {
-    background-color: #00796b;
+    background-color: var(--accent-color);
     color: white;
     border: none;
     padding: 5px 10px;
@@ -170,7 +142,7 @@ th {
 
 .header .date {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--heading-color);
 }
 
 .header .search input {
@@ -181,28 +153,30 @@ th {
 }
 
 .greeting {
-    background-color: var(--contrast-color);
+    background-color: var(--sidebar-color);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px var(--box-shadow-admin);
 }
 
 .dasboard {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
 }
 
 .task {
-    background-color: #fff;
+    background-color: var(--bg-admin-color);
     padding: 20px;
     border-radius: 10px;
-    width: 30%;
+    /* width: 30%; */
+    flex: 1 1 30%;
     display: flex;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
 /* icon */
@@ -213,6 +187,16 @@ th {
 
 .task-info {
     text-align: left;
+    flex-grow: 1;
 }
 
+.task-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--nav-before);
+}
 
+.task-label {
+    font-size: 14px;
+    color: var(--nav-before);
+}

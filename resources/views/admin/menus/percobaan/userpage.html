@@ -1,0 +1,89 @@
+
+<!--Website: wwww.codingdung.com-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="./css/userpage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/userpage.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>Profile</h2>
+        <div class="form-container">
+            <div class="form-group">
+                <label for="user-name">User Name</label>
+                <input type="text" id="user-name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="user-email">E-mail</label>
+                <input type="email" id="user-email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="user-bio">Bio</label>
+                <textarea id="user-bio" rows="4" placeholder="Tell us about yourself"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="user-birthday">Birthday</label>
+                <input type="date" id="user-birthday">
+            </div>
+            <div class="form-group">
+                <label for="user-country">Country</label>
+                <select id="user-country">
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UK">UK</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Indonesia">Jepang</option>
+                    <option value="Indonesia">Korea</option>
+                    <!-- Add more countries as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="user-phone">Phone Number</label>
+                <input type="tel" id="user-phone" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+                <label for="user-social-media">Social Media Link</label>
+                <input type="url" id="user-social-media" placeholder="Enter your social media link">
+            </div>
+            <button class="submit-btn" onclick="submitUserProfile()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        function submitUserProfile() {
+            // Handle profile form submission logic here
+            alert('User profile updated successfully!');
+        }
+
+        function addMenuItem() {
+            // Add menu item logic here
+            const tableBody = document.getElementById('menu-table-body');
+            const rowCount = tableBody.rows.length;
+            const row = tableBody.insertRow(rowCount);
+
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            const cell3 = row.insertCell(2);
+            const cell4 = row.insertCell(3);
+            const cell5 = row.insertCell(4);
+            const cell6 = row.insertCell(5);
+
+            cell1.innerHTML = rowCount + 1;
+            cell2.innerHTML = '<input type="text" placeholder="Name">';
+            cell3.innerHTML = '<input type="text" placeholder="Description">';
+            cell4.innerHTML = '<input type="text" placeholder="Price">';
+            cell5.innerHTML = '<input type="text" placeholder="Category">';
+            cell6.innerHTML = '<button class="icon-btn delete-icon" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>';
+        }
+
+    </script>
+</body>
+</html>

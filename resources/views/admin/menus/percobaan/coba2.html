@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .navbar {
+            background-color: #00796b;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .menu-item {
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+        .navbar .menu-item:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            display: flex;
+            flex: 1;
+            height: calc(100vh - 50px);
+            overflow: hidden;
+        }
+        .sidebar {
+            background-color: #e0f7fa;
+            width: 200px;
+            height: 100%;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            position: fixed;
+            left: 0;
+            top: 50px;
+            bottom: 0;
+            z-index: 1000;
+        }
+        .sidebar .logo {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .sidebar .menu {
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar .menu .menu-item {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar .menu .menu-item:hover,
+        .sidebar .menu .menu-item.active {
+            background-color: #b2ebf2;
+            border-radius: 4px;
+        }
+        .sidebar .menu .icon {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            margin-left: 200px;
+            overflow-y: auto;
+        }
+        .content h2 {
+            margin-top: 0;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group .profile-picture {
+            display: flex;
+            align-items: center;
+        }
+        .form-group .profile-picture img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        .form-group .profile-picture input {
+            flex: 1;
+        }
+        .submit-btn {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .submit-btn:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>   
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">Admin Dashboard</div>
+        <div class="navbar-menu">
+            <a href="#home" class="menu-item"><i class="fas fa-home icon"></i>Home</a>
+            <a href="#menu" class="menu-item"><i class="fas fa-utensils icon"></i>Menu</a>
+            <a href="#users" class="menu-item active"><i class="fas fa-users icon"></i>User</a>
+            <a href="#reservations" class="menu-item"><i class="fas fa-calendar-alt icon"></i>Reservation</a>
+            <a href="#contact" class="menu-item"><i class="fas fa-envelope icon"></i>Contact</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <aside class="sidebar">
+            <div class="logo">D</div>
+            <nav class="menu">
+                <a href="#home" class="menu-item"><i class="fas fa-home icon"></i>Home</a>
+                <a href="#menu" class="menu-item"><i class="fas fa-utensils icon"></i>Menu</a>
+                <a href="#users" class="menu-item active"><i class="fas fa-users icon"></i>User</a>
+                <a href="#reservations" class="menu-item"><i class="fas fa-calendar-alt icon"></i>Reservation</a>
+                <a href="#contact" class="menu-item"><i class="fas fa-envelope icon"></i>Contact</a>
+            </nav>
+        </aside>
+        <div class="content" id="content">
+            <div id="home" class="content-section">
+                <h2><i class="fas fa-home icon"></i> Home</h2>
+                <p>Welcome to the admin dashboard.</p>
+            </div>
+            <div id="menu" class="content-section" style="display:none;">
+                <h2>Menu</h2>
+                <button class="add-btn" onclick="addMenuItem()">Add Menu Item</button>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="menu-table-body">
+                            <!-- Menu data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="users" class="content-section" style="display:none;">
+                <h2>User Profile</h2>
+                <div class="form-container">
+                    <div class="form-group profile-picture">
+                        <img src="https://via.placeholder.com/100" alt="Profile Picture" id="profile-pic">
+                        <input type="file" id="profile-pic-input" accept="image/*" onchange="updateProfilePic()">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-name">User Name</label>
+                        <input type="text" id="user-name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-email">E-mail</label>
+                        <input type="email" id="user-email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-bio">Bio</label>
+                        <textarea id="user-bio" rows="4" placeholder="Tell us about yourself"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-birthday">Birthday</label>
+                        <input type="date" id="user-birthday">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-country">Country</label>
+                        <select id="user-country">
+                            <option value="USA">USA</option>
+                            <option value="Canada">Canada</option>
+                            <option value="UK">UK</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <!-- Add more countries as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-phone">Phone Number</label>
+                        <input type="tel" id="user-phone" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-social-media">Social Media Link</label>
+                        <input type="url" id="user-social-media" placeholder="Enter your social media link">
+                    </div>
+                    <button class="submit-btn" onclick="submitUserProfile()">Submit</button>
+                </div>
+            </div>
+            <div id="reservations" class="content-section" style="display:none;">
+                <h2>Reservation</h2>
+                <button class="add-btn" onclick="addReservation()">Add Reservation</button>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Customer Name</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Guests</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservation-table-body">
+                            <!-- Reservation data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="contact" class="content-section" style="display:none;">
+                <h2>Contact</h2>
+                <p>For any inquiries, please contact us at admin@restaurant.com</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            const contents = document.querySelectorAll('.content-section');
+
+            menuItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    // Remove active class from all menu items
+                    menuItems.forEach(item => item.classList.remove('active'));
+
+                    // Add active class to clicked menu item
+                    this.classList.add('active');
+
+                    // Hide all contents
+                    contents.forEach(content => content.style.display = 'none');
+
+                    // Show content corresponding to clicked menu item
+                    const targetContent = document.querySelector(this.getAttribute('href'));
+                    if (targetContent) {
+                        targetContent.style.display = 'block';
+                    }
+                });
+            });
+        });
+
+        function updateProfilePic() {
+            const fileInput = document.getElementById('profile-pic-input');
+            const profilePic = document.getElementById('profile-pic');
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                profilePic.src = e.target.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function submitUserProfile() {
+            // Handle profile form submission logic here
+            alert('User profile updated!');
+        }
+
+        function addMenuItem() {
+            // Add menu item logic here
+            const tableBody = document.getElementById('menu-table-body');
+            const rowCount = tableBody.rows.length;
+            const row = tableBody.insertRow(rowCount);
+
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            const cell3 = row.insertCell(2);
+            const cell4 = row.insertCell(3);
+            const cell5 = row.insertCell(4);
+            const cell6 = row.insertCell(5);
+
+            cell1.innerHTML = rowCount + 1;
+            cell2.innerHTML = '<input type="text" placeholder="Name">';
+            cell3.innerHTML = '<input type="text" placeholder="Description">';
+            cell4.innerHTML = '<input type="text" placeholder="Price">';
+            cell5.innerHTML = '<input type="text" placeholder="Category">';
+            cell6.innerHTML = '<button class="icon-btn delete-icon" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>';
+        }
+
+        function addReservation() {
+            // Add reservation logic here
+            const tableBody = document.getElementById('reservation-table-body');
+            const rowCount = tableBody.rows.length;
+            const row = tableBody.insertRow(rowCount);
+
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            const cell3 = row.insertCell(2);
+            const cell4 = row.insertCell(3);
+            const cell5 = row.insertCell(4);
+            const cell6 = row.insertCell(5);
+
+            cell1.innerHTML = rowCount + 1;
+            cell2.innerHTML = '<input type="text" placeholder="Customer Name">';
+            cell3.innerHTML = '<input type="text" placeholder="Date">';
+            cell4.innerHTML = '<input type="text" placeholder="Time">';
+            cell5.innerHTML = '<input type="text" placeholder="Guests">';
+            cell6.innerHTML = '<button class="icon-btn delete-icon" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>';
+        }
+
+        function deleteRow(button) {
+            // Delete row logic here
+            const row = button.closest('tr');
+            row.parentNode.removeChild(row);
+        }
+
+        function submitContactForm() {
+            // Submit contact form logic here
+            alert('Contact form submitted!');
+        }
+    </script>
+</body>
+</html>
