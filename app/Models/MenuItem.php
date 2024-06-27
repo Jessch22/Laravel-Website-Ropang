@@ -20,4 +20,10 @@ class MenuItem extends Model
     ];
 
     protected $table = 'menu_items';
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
 }

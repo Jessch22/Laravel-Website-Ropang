@@ -23,7 +23,7 @@ class AdminMenuController extends Controller
         $request->validate([
             'name' => 'required',
             'price' => 'required|numeric',
-            'category' => 'required',
+            'category',
         ]);
 
         MenuItem::create($request->all());

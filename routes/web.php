@@ -2,23 +2,28 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\indexController;
-use App\Http\Controllers\AdminMenuController;
+use App\Http\Controllers\AdminController;
+Auth::routes();
 
 //HOME
-Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/', [IndexController::class, 'index'])->name('index');
 
-//BOOK A TABLE AND CONTACT
+//HOME - BOOK A TABLE AND CONTACT
 Route::post('/book-table', [IndexController::class, 'bookTable'])->name('bookTable');
-Route::post('/contact', [IndexController::class, 'storeContact'])->name('contact.store');
+Route::post('/contacts', [IndexController::class, 'storeContact'])->name('storeContact');
 
-// MENU
-Route::get('/admin/menus', [AdminMenuController::class, 'index'])->name('admin.menus.index');
-Route::get('/admin/menus/create', [AdminMenuController::class, 'create'])->name('admin.menus.create');
-Route::post('/admin/menus', [AdminMenuController::class, 'store'])->name('admin.menus.store');
+//ADMIN
+Route::get('/admin', [AdminController::class, 'index'])->name('screens.admindashboard');
+Route::post('/updateUserRole', [AdminController::class, 'updateRole'])->name('updateUserRole');
 
-Route::get('/admin/menus/{menu}/edit', [AdminMenuController::class, 'edit'])->name('admin.menus.edit');
-Route::put('/admin/menus/{menu}', [AdminMenuController::class, 'update'])->name('admin.menus.update');
-Route::delete('/admin/menus/{menu}', [AdminMenuController::class, 'destroy'])->name('admin.menus.destroy');
+Route::delete('/admin/menus/{id}', [AdminController::class, 'destroy'])->name('admin.menus.destroy');
+
+Route::get('/admin/menus/{id}/edit', [AdminController::class, 'edit'])->name('admin.menus.edit');
+Route::put('/admin/menus/{id}', [AdminController::class, 'update'])->name('admin.menus.update');
+
+Route::get('/admin/users/{id}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
+Route::put('/admin/users/{id}', [AdminController::class, 'updateUser'])->name('admin.users.update');
+Route::delete('/admin/users/{id}', [AdminController::class, 'destroyUser'])->name('admin.users.destroy');
 
 //FOOTER - OTHER PAGE
 Route::get('/FAQ', function () {
@@ -32,10 +37,5 @@ Route::get('/TermsofServices', function () {
 Route::get('/privacyPolicy', function () {
   return view('other-page.ppolicy');
 })->name('ppolicy');
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
