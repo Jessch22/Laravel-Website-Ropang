@@ -13,6 +13,8 @@ class Purchase extends Model
         'menu_id',
         'quantity',
         'total_price',
+        'notes',
+        'status',
     ];
 
     public function user()
@@ -25,4 +27,3 @@ class Purchase extends Model
         return $this->belongsTo(Menu::class);
     }
 }
-

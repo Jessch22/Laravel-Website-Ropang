@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\indexController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 Auth::routes();
 
 //HOME

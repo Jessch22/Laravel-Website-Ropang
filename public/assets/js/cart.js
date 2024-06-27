@@ -23,14 +23,10 @@ function removeItem(itemId) {
 
 function updateTotal() {
   const itemPrices = document.querySelectorAll('.item-price');
-  let subtotal = 0;
+  let total = 0;
   itemPrices.forEach(price => {
-      subtotal += parseFloat(price.textContent.replace('$', ''));
+    total += parseFloat(price.textContent.replace('$', ''));
   });
-  const shipping = 1.00; // biaya admin
-  const total = subtotal + shipping;
-  document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-  document.getElementById('shipping').textContent = `$${shipping.toFixed(2)}`;
   document.getElementById('total').textContent = `$${total.toFixed(2)}`;
 }
 
