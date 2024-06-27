@@ -11,7 +11,7 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 
 //HOME - BOOK A TABLE AND CONTACT
 Route::post('/book-table', [IndexController::class, 'bookTable'])->name('bookTable');
-Route::post('/contacts', [IndexController::class, 'storeContact'])->name('storeContact');
+Route::post('/storeContacts', [IndexController::class, 'storeContact'])->name('storeContact');
 
 //ADMIN
 Route::get('/admin', [AdminController::class, 'index'])->name('screens.admindashboard');
@@ -22,7 +22,7 @@ Route::delete('admin/users/{id}', [AdminController::class, 'destroyUser'])->name
 
 // CART
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
-Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+Route::get('/cart', [CartController::class, 'viewCart'])->name('other-page.cart');
 Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
 

@@ -18,33 +18,46 @@ class indexController extends Controller
 
     public function bookTable(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:15',
             'date' => 'required|date',
-            'time' => 'required',
-            'people' => 'required|integer',
+            'time' => 'required|date_format:H:i',
+            'people' => 'required|integer|min:1',
             'message' => 'nullable|string',
-            'status' => 'required',
         ]);
 
-        Reservation::create($validatedData);
+        Reservation::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'date' => $request->date,
+            'time' => $request->time,
+            'people' => $request->people,
+            'message' => $request->message,
+        ]);
 
         return redirect('/#book-a-table')->with('success', 'Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!')->with('section', 'book-a-table');
     }
 
     public function storeContact(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email',
+            'email' => 'required|email|max:255',
             'subject' => 'required|string|max:255',
             'message' => 'required|string',
         ]);
 
-        Contact::create($validatedData);        
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'status' => 'pending'
+        ]);        
 
-        return redirect('/#contact')->with('success', 'Your message has been sent.<br>Thank you!')->with('section', 'contact');
+        return redirect('/#contactForm')->with('success', 'Your message has been sent.<br>Thank you!')->with('section', 'contact');
     }
 }
