@@ -28,7 +28,7 @@ class AdminController extends Controller
         $totalUsers = User::count();
         $totalPurchases = $users->sum('purchases_count');
         $totalExpenditure = $users->sum('purchases_sum_total_price');   
-        
+
         return view('screens.admindashboard', compact('menus',  'reservations', 'users', 'contact', 'totalUsers', 'totalPurchases', 'totalExpenditure'));
     }
 
@@ -85,6 +85,6 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('admin.dashboard')->with('success', 'User deleted successfully.');
+        return redirect()->route('screens.admindashboard')->with('success', 'User deleted successfully.');
     }
 }

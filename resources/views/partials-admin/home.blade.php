@@ -18,21 +18,20 @@ use Illuminate\Support\Facades\Auth;
         <div class="task">
             <div class="task-icon"><i class="fa-solid fa-user-plus"></i></div>
             <div class="task-info">
-                <div class="task-number">46.000</div>
-                <div class="task-label">Jumlah Pembeli</div>
-            </div>
+            <div class="task-number">{{ $totalPurchases }}</div>
+            <div class="task-label">Jumlah Pembeli</div>
         </div>
         <div class="task">
             <div class="task-icon"><i class="fas fa-users icon"></i></div> 
             <div class="task-info">
-                <div class="task-number">456 </div>
+                <div class="task-number">{{ $totalUsers }}</div>
                 <div class="task-label">Jumlah User</div>
             </div>
         </div>
         <div class="task">
             <div class="task-icon"><i class="fa-solid fa-money-bill-1-wave"></i></div>
             <div class="task-info">
-                <div class="task-number">Rp.5.764.564</div>
+                <div class="task-number">Rp.{{ number_format($totalExpenditure, 0, ',', '.') }}</div>
                 <div class="task-label">Total Pembayaran</div>
             </div>
         </div>

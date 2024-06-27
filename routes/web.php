@@ -17,6 +17,7 @@ Route::get('/admin', [AdminController::class, 'index'])->name('screens.admindash
 Route::post('/updateUserRole', [AdminController::class, 'updateRole'])->name('updateUserRole');
 
 Route::delete('/admin/menus/{id}', [AdminController::class, 'destroy'])->name('admin.menus.destroy');
+Route::delete('admin/users/{id}', [AdminController::class, 'destroyUser'])->name('admin.users.destroy');
 
 Route::get('/admin/menus/{id}/edit', [AdminController::class, 'edit'])->name('admin.menus.edit');
 Route::put('/admin/menus/{id}', [AdminController::class, 'update'])->name('admin.menus.update');

@@ -27,8 +27,15 @@
                         </select>
                     </td>
                     <td>{{ $user->purchases_count }}</td>
-                    <td>Rp.{{ number_format($user->purchases_sum_total_price, 0, ',', '.') }}</td>
+                    <td>Rp {{ number_format($user->purchases_sum_total_price, 0, ',', '.') }}</td>
                     <td>
+                        <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-link text-danger" onclick="return confirm('Are you sure?')">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
