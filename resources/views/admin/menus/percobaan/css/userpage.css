@@ -39,7 +39,7 @@ root.css
 
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--contrast-color);
+  background-color: var(--background-color);
   margin: 0;
   padding: 0;
 }

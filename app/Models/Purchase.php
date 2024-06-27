@@ -10,7 +10,7 @@ class Purchase extends Model
 
     protected $fillable = [
         'user_id',
-        'menu_id',
+        'menu_item_id',
         'quantity',
         'total_price',
         'notes',

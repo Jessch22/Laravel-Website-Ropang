@@ -12,4 +12,5 @@
       <a href="#reservations" class="menu-item"><i class="fas fa-calendar-alt icon"></i>Reservation</a>
       <a href="#contact" class="menu-item"><i class="fas fa-envelope icon"></i>Contact</a>
     </nav>
+    <a href="/" class="special-menu"><i class="fas fa-sign-out-alt icon"></i>Go to Website</a>
   </aside>
