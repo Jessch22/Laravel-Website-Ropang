@@ -31,6 +31,16 @@
   --heading-footer: #ffffff;
 }
 
+/* ADMIN */
+:root{
+  --sidebar-text: #333;
+  --sidebar-color: #f3b5b5;
+  --bg-admin-color: #ffffff;
+  --box-shadow-admin: rgba(0,0,0,0.1);
+  --bg-table-admin: #f2f2f2;
+  --border-table-admin: #ddd;
+}
+
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
