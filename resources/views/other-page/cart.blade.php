@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="shopping-cart">
-            <a href="/#menu" class="back-link">← Continue Shopping</a>
+            <a href="/#menu" onclick="continueShopping()" class="back-link">← Continue Shopping</a>
             <h2>Shopping Cart</h2>
             <div class="cart-items">
                 @if(!empty($cart))
@@ -71,14 +71,12 @@
                     <input type="text" id="card-cvv" name="card-cvv" value="{{ old('card-cvv') }}">
                 </div>
                 <div class="order-total">
-                    <p>Subtotal: <span id="subtotal">${{ number_format($subtotal, 2) }}</span></p>
-                    <p>Shipping: <span id="shipping">${{ number_format($shipping, 2) }}</span></p>
                     <p>Total : <span id="total">${{ number_format($total, 2) }}</span></p>
                 </div>
                 <button type="submit" onclick="checkout()">Checkout</button>
             </form>
         </div>
     </div>
-    <script src="{{ asset('js/card.js') }}" defer></script>
+    <script src="assets/js/cart.js" defer></script>
 </body>
 </html>
