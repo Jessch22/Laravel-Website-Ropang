@@ -11,7 +11,7 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 
 //HOME - BOOK A TABLE AND CONTACT
 Route::post('/book-table', [IndexController::class, 'bookTable'])->name('bookTable');
-Route::post('/contacts', [IndexController::class, 'storeContact'])->name('storeContact');
+Route::post('/storeContacts', [IndexController::class, 'storeContact'])->name('storeContact');
 
 //ADMIN
 Route::get('/admin', [AdminController::class, 'index'])->name('screens.admindashboard');
