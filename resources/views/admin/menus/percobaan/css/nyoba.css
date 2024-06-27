@@ -1,0 +1,211 @@
+root.css
+/* Fonts */
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Playfair Display",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* aa */
+/* Global Colors*/
+
+:root { 
+  --background-color: #e7e7e7; /* Background color */
+  --default-color: rgba(0, 0, 0, 0.7); /* Text content */
+  --heading-color: #000000; /* Headings, subheadings and title */
+  --accent-color: #e45050; /* Buttons, links, and other elements that need to stand out */
+  --contrast-color: #ffeded; /*For elements when the background color is one of the heading, accent, or default colors. */
+}
+
+/* Nav Menu Colors */
+:root {
+  --nav-color: #e45050;  /* navmenu links */
+  --nav-hover-color: #000000; /* hovered color */
+  --nav-before: #711515;
+}
+
+/* Footer */
+:root{
+  --footer-color: #0c0b09;
+  --footer-text: #ffffff;
+  --footer-hover: #c84343;
+  --heading-footer: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+/* navnar atas */
+.navbar {
+    background-color: #000000;
+    padding: 10px;
+    color: white;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family:var(--default-font) ;
+}
+.navbar {
+    font-size: 25px;
+    position: relative;
+    text-align: center;
+}
+
+/* main bagian sidebar*/
+.main-content {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 50px);
+    overflow: hidden;
+}
+.sidebar {
+    background-color: #e0f7fa;
+    width: 200px;
+    height: 100%;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    position: fixed;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    z-index: 1000;
+}
+.sidebar .logo {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.sidebar .menu {
+    display: flex;
+    flex-direction: column;
+}
+.sidebar .menu .menu-item {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+.sidebar .menu .menu-item:hover,
+.sidebar .menu .menu-item.active {
+    background-color: #b2ebf2;
+    border-radius: 4px;
+}
+.sidebar .menu .icon {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+/* content bagian*/
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 200px;
+    overflow-y: auto;
+}
+
+/* content baguan home dll */
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 200px;
+    overflow-y: auto;
+}
+.content h2 {
+    margin-top: 0;
+}
+.table-container {
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+.add-btn, .delete-btn {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.delete-btn {
+    background-color: #e53935;
+}
+
+
+/* header for home*/
+.header {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header .date {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.header .search input {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+.greeting {
+    background-color: #f3faff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.dasboard {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.task {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    justify-content: space-between;
+}
+
+/* icon */
+.task-icon {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.task-info {
+    text-align: left;
+}
