@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="./css/shoppingCard.css">
+    <script src="./js/card.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="shopping-cart">
+            <a href="#" onclick="continueShopping()" class="back-link">← Continue Shopping</a>
+            <h2>Shopping Cart</h2>
+            <div class="cart-items">
+                <div class="cart-item" id="item-1">
+                    <img src="https://i.pinimg.com/564x/2a/4a/1e/2a4a1e5ce0202fb4954fe1309f049c48.jpg" alt=" ">
+                    <div class="item-details">
+                        <p>Nasi Kuning </p>
+                        <p>telur + minuman</p>
+                        <div class="item-controls">
+                            <button onclick="updateQuantity('item-1', 1)">+</button>
+                            <input type="number" id="item-1-quantity" value="1" readonly>
+                            <button onclick="updateQuantity('item-1', -1)">-</button>
+                            <span class="item-price" id="item-1-price" data-unit-price="10">$10.00</span>
+                            <button class="delete-btn" onclick="removeItem('item-1')">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-item" id="item-2">
+                    <img src="https://i.pinimg.com/564x/07/52/bc/0752bcff738524133af0ef3ceab711df.jpg" alt=" ">
+                    <div class="item-details">
+                        <p>Mie Spesial</p>
+                        <p>Mie + Telur + minuman Teh</p>
+                        <div class="item-controls">
+                            <button onclick="updateQuantity('item-2', 1)">+</button>
+                            <input type="number" id="item-2-quantity" value="1" readonly>
+                            <button onclick="updateQuantity('item-2', -1)">-</button>
+                            <span class="item-price" id="item-2-price" data-unit-price="8">$8.00</span>
+                            <button class="delete-btn" onclick="removeItem('item-2')">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="payment-details">
+            <h3>Card Details</h3>
+            <form>
+                <div class="card-type">
+                    <label>
+                        <input type="radio" name="card-type" value="mastercard" checked>
+                        <img src="https://i.pinimg.com/564x/56/65/ac/5665acfeb0668fe3ffdeb3168d3b38a4.jpg" alt="MasterCard">
+                    </label>
+                    <label>
+                        <input type="radio" name="card-type" value="visa">
+                        <img src="https://i.pinimg.com/564x/de/72/b5/de72b5cd21b9c827639853f666b51b50.jpg" alt="Visa">
+                    </label>
+                    <label>
+                        <input type="radio" name="card-type" value="gopay">
+                        <img src="https://i.pinimg.com/564x/92/38/ad/9238ad5545b986874ac753855c4f3439.jpg" alt="Gopay">
+                    </label>
+                    <label>
+                        <input type="radio" name="card-type" value="paypal">
+                        <img src="https://i.pinimg.com/564x/7c/81/52/7c8152cb8959cd0155c5f8d6cc3c7cd6.jpg" alt="PayPal">
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label for="card-name">Name on Card</label>
+                    <input type="text" id="card-name" value="Daisy Murphy">
+                </div>
+                <div class="input-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" value="1111 2222 3333 4444">
+                </div>
+                <div class="input-group">
+                    <label for="card-expiration">Expiration Date</label>
+                    <input type="text" id="card-expiration" value="10/2020">
+                </div>
+                <div class="input-group">
+                    <label for="card-cvv">CVV</label>
+                    <input type="text" id="card-cvv" value="123">
+                </div>
+                <div class="order-total">
+                    <p>Subtotal: <span id="subtotal">$10.00</span></p>
+                    <p>Shipping: <span id="shipping">$10.00</span></p>
+                    <p>Total : <span id="total">$....</span></p>
+                </div>
+                <button type="button" onclick="checkout()">Checkout</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
