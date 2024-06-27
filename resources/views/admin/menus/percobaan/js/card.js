@@ -1,47 +1,64 @@
-// just card 
+function continueShopping() {
+    // Implement functionality to continue shopping
+}
 
 function updateQuantity(itemId, change) {
     const quantityInput = document.getElementById(`${itemId}-quantity`);
-    let quantity = parseInt(quantityInput.value);
-    quantity += change;
+    let quantity = parseInt(quantityInput.value) + change;
     if (quantity < 1) quantity = 1;
     quantityInput.value = quantity;
-    updatePrice(itemId);
-}
-
-function updatePrice(itemId) {
-    const quantityInput = document.getElementById(`${itemId}-quantity`);
-    const quantity = parseInt(quantityInput.value);
-    const unitPrice = parseFloat(document.getElementById(`${itemId}-price`).dataset.unitPrice);
-    const totalPrice = quantity * unitPrice;
-    document.getElementById(`${itemId}-price`).textContent = `$${totalPrice.toFixed(2)}`;
-    updateTotal();
+    const unitPrice = parseInt(document.getElementById(`${itemId}-price`).getAttribute('data-unit-price'));
+    const priceElement = document.getElementById(`${itemId}-price`);
+    priceElement.innerText = `Rp. ${unitPrice * quantity}`;
+    updateTotals();
 }
 
 function removeItem(itemId) {
     document.getElementById(itemId).remove();
-    updateTotal();
+    updateTotals();
 }
 
-function updateTotal() {
-    const itemPrices = document.querySelectorAll('.item-price');
+    
+function updateTotals() {
+    const items = document.querySelectorAll('.cart-item');
     let subtotal = 0;
-    itemPrices.forEach(price => {
-        subtotal += parseFloat(price.textContent.replace('$', ''));
+    items.forEach(item => {
+        const quantity = parseInt(item.querySelector('input').value);
+        const unitPrice = parseInt(item.querySelector('.item-price').getAttribute('data-unit-price'));
+        subtotal += quantity * unitPrice;
     });
-    const shipping = 1.00; // biaya admin
+    
+    const shipping = subtotal > 0 ? 5.000 : 0; // Example shipping cost
     const total = subtotal + shipping;
-    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-    document.getElementById('shipping').textContent = `$${shipping.toFixed(2)}`;
-    document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+    document.getElementById('subtotal').innerText = `Rp. ${subtotal}`;
+    document.getElementById('shipping').innerText = `Rp. ${shipping}`;
+    document.getElementById('total').innerText = `Rp. ${total}`;
 }
 
 function checkout() {
-    alert('Proceeding to checkout');
-}
+    const items = document.querySelectorAll('.cart-item');
+    if (items.length === 0) {
+        alert('Your cart is empty.');
+        return;
+    }
+    const invoiceData = [];
+    items.forEach(item => {
+        const description = item.querySelector('.item-details p').innerText;
+        const quantity = item.querySelector('input').value;
+        const unitPrice = item.querySelector('.item-price').getAttribute('data-unit-price');
+        const total = quantity * unitPrice;
+        invoiceData.push({ description, quantity, unitPrice, total });
+    });
 
-function continueShopping() {
-    alert('Continuing shopping');
-}
+    const subtotal = document.getElementById('subtotal').innerText;
+    const shipping = document.getElementById('shipping').innerText;
+    const total = document.getElementById('total').innerText;
 
-document.addEventListener('DOMContentLoaded', updateTotal);
+
+    localStorage.setItem('invoiceData', JSON.stringify(invoiceData));
+    localStorage.setItem('invoiceSubtotal', subtotal);
+    localStorage.setItem('invoiceShipping', shipping);
+    localStorage.setItem('invoiceTotal', total);
+
+    window.location.href = 'invoice.html';
+}
