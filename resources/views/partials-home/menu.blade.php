@@ -12,11 +12,13 @@
       <div class="col-lg-12 d-flex justify-content-center">
         <ul class="menu-filters isotope-filters">
           <li data-filter="*" class="filter-active">All</li>
-          <li data-filter=".filter-ns-kuning">Nasi Kuning</li>
-          <li data-filter=".filter-roti">Roti</li>
-          <li data-filter=".filter-minuman">Minuman</li>
-          <li data-filter=".filter-mie">Mie</li>
-          <li data-filter=".filter-lain">Lainnya</li>
+          <li data-filter=".filter-Indomie">Indomie</li>
+          <li data-filter=".filter-Roti">Roti</li>
+          <li data-filter=".filter-Nasi">Nasi</li>
+          <li data-filter=".filter-Pisang">Pisang</li>
+          <li data-filter=".filter-Ayam">Ayam</li>
+          <li data-filter=".filter-Minuman">Minuman</li>
+          <li data-filter=".filter-Lainnya">Lainnya</li>
         </ul>
       </div>
     </div>
