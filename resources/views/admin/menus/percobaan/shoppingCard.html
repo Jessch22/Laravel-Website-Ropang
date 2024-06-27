@@ -5,76 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="./css/shoppingCard.css">
+    <script src="./js/card.js" defer></script>
 </head>
 <body>
     <div class="container">
         <div class="shopping-cart">
-            <div class="header">
-                <button onclick="continueShopping()">Continue Shopping</button>
-            </div>
+            <a href="#" onclick="continueShopping()" class="back-link">← Continue Shopping</a>
             <h2>Shopping Cart</h2>
-            <p>You have <span id="item-count">4</span> items in your cart</p>
             <div class="cart-items">
-                <div class="cart-item">
-                    <img src="path_to_image" alt="OnePlus 7T Pro">
+                <div class="cart-item" id="item-1">
+                    <img src="https://i.pinimg.com/564x/2a/4a/1e/2a4a1e5ce0202fb4954fe1309f049c48.jpg" alt=" ">
                     <div class="item-details">
-                        <p>OnePlus 7T Pro</p>
-                        <p>256 Go, Nebula Blue</p>
+                        <p>Nasi Kuning </p>
+                        <p>telur + minuman</p>
+                        <div class="item-controls">
+                            <button onclick="updateQuantity('item-1', 1)">+</button>
+                            <input type="number" id="item-1-quantity" value="1" readonly>
+                            <button onclick="updateQuantity('item-1', -1)">-</button>
+                            <span class="item-price" id="item-1-price" data-unit-price="800">$800.00</span>
+                            <button class="delete-btn" onclick="removeItem('item-1')">🗑️</button>
+                        </div>
                     </div>
-                    <div class="item-actions">
-                        <button onclick="updateQuantity('item1', -1)">-</button>
-                        <input type="text" id="item1-quantity" value="1" readonly>
-                        <button onclick="updateQuantity('item1', 1)">+</button>
+                </div>
+                <div class="cart-item" id="item-2">
+                    <img src="https://i.pinimg.com/564x/07/52/bc/0752bcff738524133af0ef3ceab711df.jpg" alt=" ">
+                    <div class="item-details">
+                        <p>Mie Spesial</p>
+                        <p>Mie + Telur + minuman Teh</p>
+                        <div class="item-controls">
+                            <button onclick="updateQuantity('item-2', 1)">+</button>
+                            <input type="number" id="item-2-quantity" value="1" readonly>
+                            <button onclick="updateQuantity('item-2', -1)">-</button>
+                            <span class="item-price" id="item-2-price" data-unit-price="900">$900.00</span>
+                            <button class="delete-btn" onclick="removeItem('item-2')">🗑️</button>
+                        </div>
                     </div>
-                    <p class="item-price" id="item1-price">$800.00</p>
-                    <button class="delete-item" onclick="removeItem('item1')">🗑️</button>
                 </div>
                 
-                </div>
-                <div class="cart-item">
-                    <img src="path_to_image" alt="iPhone 11 Pro">
-                    <div class="item-details">
-                        <p>iPhone 11 Pro</p>
-                        <p>256 Go, Space Grey</p>
-                    </div>
-                    <div class="item-actions">
-                        <button onclick="updateQuantity('item4', -1)">-</button>
-                        <input type="text" id="item4-quantity" value="1" readonly>
-                        <button onclick="updateQuantity('item4', 1)">+</button>
-                    </div>
-                    <p class="item-price" id="item4-price">$1,100.00</p>
-                    <button class="delete-item" onclick="removeItem('item4')">🗑️</button>
-                </div>
+                
             </div>
         </div>
-        <div class="order-summary">
-            <h2>Card Details</h2>
-            <div class="card-types">
-                <input type="radio" name="card-type" id="mastercard" checked>
-                <label for="mastercard"><img src="path_to_mastercard_image" alt="MasterCard"></label>
-                <input type="radio" name="card-type" id="visa">
-                <label for="visa"><img src="path_to_visa_image" alt="Visa"></label>
-                <input type="radio" name="card-type" id="amex">
-                <label for="amex"><img src="path_to_amex_image" alt="Amex"></label>
-                <input type="radio" name="card-type" id="paypal">
-                <label for="paypal"><img src="path_to_paypal_image" alt="Paypal"></label>
-            </div>
-            <form id="card-details-form">
-                <div class="form-group">
+        <div class="payment-details">
+            <h3>Card Details</h3>
+            <form>
+                <div class="card-type">
+                    <label>
+                        <input type="radio" name="card-type" value="mastercard" checked>
+                        <img src="https://i.pinimg.com/564x/56/65/ac/5665acfeb0668fe3ffdeb3168d3b38a4.jpg" alt="MasterCard">
+                    </label>
+                    <label>
+                        <input type="radio" name="card-type" value="visa">
+                        <img src="https://i.pinimg.com/564x/de/72/b5/de72b5cd21b9c827639853f666b51b50.jpg" alt="Visa">
+                    </label>
+                    <label>
+                        <input type="radio" name="card-type" value="gopay">
+                        <img src="https://i.pinimg.com/564x/92/38/ad/9238ad5545b986874ac753855c4f3439.jpg" alt="Gopay">
+                    </label>
+                    <label>
+                        <input type="radio" name="card-type" value="paypal">
+                        <img src="https://i.pinimg.com/564x/7c/81/52/7c8152cb8959cd0155c5f8d6cc3c7cd6.jpg" alt="PayPal">
+                    </label>
+                </div>
+                <div class="input-group">
                     <label for="card-name">Name on Card</label>
                     <input type="text" id="card-name" value="Daisy Murphy">
                 </div>
-                <div class="form-group">
+                <div class="input-group">
                     <label for="card-number">Card Number</label>
                     <input type="text" id="card-number" value="1111 2222 3333 4444">
                 </div>
-                <div class="form-group">
-                    <label for="expiration-date">Expiration Date</label>
-                    <input type="text" id="expiration-date" value="10/2020">
+                <div class="input-group">
+                    <label for="card-expiration">Expiration Date</label>
+                    <input type="text" id="card-expiration" value="10/2020">
                 </div>
-                <div class="form-group">
-                    <label for="cvv">CVV</label>
-                    <input type="text" id="cvv" value="123">
+                <div class="input-group">
+                    <label for="card-cvv">CVV</label>
+                    <input type="text" id="card-cvv" value="123">
                 </div>
                 <div class="order-total">
                     <p>Subtotal: <span id="subtotal">$3,000.00</span></p>
@@ -85,59 +91,5 @@
             </form>
         </div>
     </div>
-
-
-
-    <script>
-        function updateQuantity(itemId, change) {
-    const quantityInput = document.getElementById(`${itemId}-quantity`);
-    let quantity = parseInt(quantityInput.value) + change;
-    if (quantity < 1) quantity = 1;
-    quantityInput.value = quantity;
-
-    const itemPrice = document.getElementById(`${itemId}-price`);
-    const unitPrice = parseFloat(itemPrice.dataset.unitPrice);
-    itemPrice.innerText = `$${(unitPrice * quantity).toFixed(2)}`;
-
-    updateTotals();
-}
-
-function removeItem(itemId) {
-    document.getElementById(itemId).remove();
-    updateTotals();
-}
-
-function updateTotals() {
-    const items = document.querySelectorAll('.cart-item');
-    let subtotal = 0;
-
-    items.forEach(item => {
-        const quantity = parseInt(item.querySelector('input').value);
-        const unitPrice = parseFloat(item.querySelector('.item-price').dataset.unitPrice);
-        subtotal += quantity * unitPrice;
-    });
-
-    document.getElementById('subtotal').innerText = `$${subtotal.toFixed(2)}`;
-    const shipping = 20.00;
-    document.getElementById('shipping').innerText = `$${shipping.toFixed(2)}`;
-    const total = subtotal + shipping;
-    document.getElementById('total').innerText = `$${total.toFixed(2)}`;
-}
-
-function continueShopping() {
-    // Redirect to shopping page
-    window.location.href = '/shop';
-}
-
-function checkout() {
-    alert('Checking out...');
-    // Handle checkout logic here
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    updateTotals();
-});
-
-    </script>
 </body>
 </html>
