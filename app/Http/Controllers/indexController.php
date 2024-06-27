@@ -13,7 +13,7 @@ class indexController extends Controller
     public function index()
     {
         $menus = MenuItem::all(); 
-        return view('index', compact('menus'));
+        return view('screens.index', compact('menus'));
     }
 
     public function bookTable(Request $request)
@@ -26,6 +26,7 @@ class indexController extends Controller
             'time' => 'required',
             'people' => 'required|integer',
             'message' => 'nullable|string',
+            'status' => 'required',
         ]);
 
         Reservation::create($validatedData);

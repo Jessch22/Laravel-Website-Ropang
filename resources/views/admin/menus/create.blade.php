@@ -20,7 +20,11 @@
             <label for="category">Category</label>
             <input type="text" id="category" name="category" class="form-control" required>
         </div>
-        <!-- tambahkan field lainnya sesuai kebutuhan -->
+        <div class="form-group">
+            <label for="description">Category</label>
+            <input type="text" id="description" name="description" class="form-control">
+        </div>
+        
         <button type="submit" class="btn btn-primary">Create Menu</button>
     </form>
 @endsection

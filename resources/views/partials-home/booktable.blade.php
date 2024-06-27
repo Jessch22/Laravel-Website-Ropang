@@ -129,7 +129,7 @@
                 </div>
             @endif
 
-            <form id="contactForm" action="{{ route('contact.store') }}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form id="contactForm" action="{{ route('storeContact') }}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
             @csrf
               <div class="row gy-4">
 
@@ -264,16 +264,16 @@
             success.style.display = 'block';
             bookTableForm.reset();
             window.scrollTo({ top: bookTableForm.offsetTop, behavior: 'smooth' });
-            showAlert('.alert1', response.message);contactForm;
+            showAlert('.alert2', response.message);contactForm;
           } else {
             error.style.display = 'block';
-            showAlert('.alert1', response.error);
+            showAlert('.alert2', response.error);
           }
         })
         .catch(error => {
           console.error('Error:', error);
           error.style.display = 'block';
-          showAlert('.alert1');
+          showAlert('.alert2');
         });
       });
     }
