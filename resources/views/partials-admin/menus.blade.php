@@ -1,7 +1,7 @@
 <!-- menu -->
 <div id="menu" class="content-section" style="display:none;">
     <h2>Menu</h2>
-    <button class="add-btn" onclick="addMenuItem()">Add Menu Item</button>
+    <a href="{{ route('admin.menus.create') }}" class="add-btn">Add Menu Item</a>
     <div class="table-container">
     @if ($menus->isEmpty())
         <p>No menus available.</p>
