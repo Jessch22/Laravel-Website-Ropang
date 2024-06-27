@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\indexController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 Auth::routes();
 
 //HOME
@@ -19,12 +20,11 @@ Route::post('/updateUserRole', [AdminController::class, 'updateRole'])->name('up
 Route::delete('/admin/menus/{id}', [AdminController::class, 'destroy'])->name('admin.menus.destroy');
 Route::delete('admin/users/{id}', [AdminController::class, 'destroyUser'])->name('admin.users.destroy');
 
-Route::get('/admin/menus/{id}/edit', [AdminController::class, 'edit'])->name('admin.menus.edit');
-Route::put('/admin/menus/{id}', [AdminController::class, 'update'])->name('admin.menus.update');
+// CART
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
-Route::get('/admin/users/{id}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
-Route::put('/admin/users/{id}', [AdminController::class, 'updateUser'])->name('admin.users.update');
-Route::delete('/admin/users/{id}', [AdminController::class, 'destroyUser'])->name('admin.users.destroy');
 
 //FOOTER - OTHER PAGE
 Route::get('/FAQ', function () {
@@ -39,4 +39,4 @@ Route::get('/privacyPolicy', function () {
   return view('other-page.ppolicy');
 })->name('ppolicy');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\UserController::class, 'index'])->name('home');
