@@ -35,3 +35,6 @@ Buka `http://127.0.0.1:8000/`
 
 #### Seeder Database
 `php artisan db:seed`
+
+#### Link Youtube
+ PPT = https://youtu.be/1HzbvSmqFVw 
