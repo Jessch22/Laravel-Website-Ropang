@@ -1,5 +1,5 @@
 # Projek Website Ropang Riter Talent.
-### Projek ini merupakan bagian dari UAS untuk Kelas TI semester 4, bekerja sama dengan mitra Ropang Riter Talent.
+### Projek ini merupakan bagian dari UAS untuk Kelas TI-H semester 4, bekerja sama dengan mitra Ropang Riter Talent.
 
 ### Beranggotakan:
 - Jessica Ho (535220187)
