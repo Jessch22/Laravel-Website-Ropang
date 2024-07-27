@@ -3,7 +3,7 @@
 
 ### Beranggotakan:
 - Jessica Ho (535220187)
-  (Pembuatan front end 19%, pembuatan fitur sort by dan filter, CRUD Menu, CRUD User, CRUD Reservation, CRUD Contact, Blade templating, seeder, factories, database, routes, alert, update library, panduan instalasi, Use Case, Class Diagram, autentikasi menggunakan UI Auth, Admin dashboard, Config laravel & npm, fix controller, fix bug, using axios)😊🙏🏼
+  (Pembuatan front end 19%, pembuatan fitur sort by dan filter, CRUD Menu, CRUD User, CRUD Reservation, CRUD Contact, Blade templating, seeder, factories, database, routes, alert, update library, panduan instalasi, Use Case, Class Diagram, autentikasi menggunakan UI Auth, Admin dashboard, Config laravel & npm, fix controller, fix bug, using axios)
 - Lufika Ayu (535220223)
   (Pembuatan front end 80%, Makalah, Javascript, CSS, Bootstrap, Timeline Jira, Diagram UML, alert, filter, update library, admin dashboard, footer and navbar)
 - Aulia Dwi (535220178)
