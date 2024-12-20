@@ -11,16 +11,21 @@
     <div class="container">
         <div class="shopping-cart">
             <a href="/#menu" onclick="continueShopping()" class="back-link">← Continue Shopping</a>
-            <h2>Shopping Cart</h2>
+            <h2>Keranjang</h2>
             <div class="cart-items">
                 @if(session('cart'))
                     @foreach(session('cart') as $id => $details)
                         <div class="cart-item" id="item-{{ $id }}">
                             <img src="{{ $details['image'] }}" alt="{{ $details['name'] }}">
                             <div class="item-details">
-                                <p>{{ $details['name'] }}</p>
+                                <p><strong>{{ $details['name'] }}</strong></p>
                                 <p>{{ $details['description'] }}</p>
                                 <div class="item-controls">
+                                <button class="btn-minus" onclick="updateQuantity({{ $id }}, 'decrease')">-</button>
+                        <span class="item-quantity" id="quantity-{{ $id }}">{{ $details['quantity'] }}</span>
+                        <button class="btn-plus" onclick="updateQuantity({{ $id }}, 'increase')">+</button>
+                        <span class="item-price">Rp{{ number_format($details['price'] * $details['quantity']) }}</span>
+                        <button class="btn-delete" onclick="deleteItem({{ $id }})">Delete</button>
                                     <button onclick="updateQuantity('item-{{ $id }}', 1)">+</button>
                                     <input type="number" id="item-{{ $id }}-quantity" value="{{ $details['quantity'] }}" readonly>
                                     <button onclick="updateQuantity('item-{{ $id }}', -1)">-</button>
@@ -80,6 +85,6 @@
             </form>
         </div>
     </div>
-    <script src="assets/js/cart.js" defer></script>
+
 </body>
 </html>

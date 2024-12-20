@@ -1,10 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Models\Menu;
-use App\Models\Purchase;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
@@ -31,36 +30,34 @@ class CartController extends Controller
 
     public function viewCart()
     {
-        $cart = session('cart');
+        $cart = Session::get('cart', []);
         $total = 0;
 
-        if (!empty($cart)) {
-            foreach ($cart as $id => $details) {
-                $total += $details['quantity'] * $details['price'];
-            }
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
         }
 
-    return view('other-page.cart', ['total' => $total]);
+        return view('other-page.cart', compact('cart', 'total'));
     }
 
     public function checkout(Request $request)
     {
-        $cart = session()->get('cart');
-        $user = Auth::user();
+        $request->validate([
+            'card-name' => 'required|string|max:255',
+            'card-number' => 'required|digits_between:13,16',
+            'card-expiration' => 'required|regex:/^(0[1-9]|1[0-2])\/\d{2}$/', // Format MM/YY
+            'card-cvv' => 'required|digits:3',
+            'card-type' => 'required|string',
+        ]);
 
-        foreach ($cart as $id => $details) {
-            Purchase::create([
-                'user_id' => $user->id,
-                'menu_id' => $id,
-                'quantity' => $details['quantity'],
-                'total_price' => $details['quantity'] * $details['price'],
-                'notes' => $request->notes,
-                'status' => 'pending'
-            ]);
-        }
+        $cart = Session::get('cart', []);
+        $total = collect($cart)->sum(function ($item) {
+            return $item['price'] * $item['quantity'];
+        });
 
-        session()->forget('cart');
+        Session::forget('cart');
 
-        return redirect()->route('other-page.cart')->with('success', 'Checkout successful');
+        return redirect()->route('cart.index')->with('success', 'Checkout successful! Total: $' . number_format($total, 2));
     }
+    
 }

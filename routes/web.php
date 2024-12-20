@@ -29,14 +29,10 @@ Route::get('/admin/menus/{id}/edit', [AdminController::class, 'edit'])->name('ad
 Route::put('/admin/menus/{id}', [AdminController::class, 'update'])->name('admin.menus.update');
 
 // CART
-Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
-Route::get('/cart', [CartController::class, 'viewCart'])->name('other-page.cart');
+Route::post('/add-to-cart', [CartController::class, 'addToCart']);
+Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.index');
 Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-
-// CART
-Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
-Route::get('/cart', [CartController::class, 'viewCart'])->name('other-page.cart');
-Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+Route::post('/cart/update', [CartController::class, 'updateCart']);
 
 //FOOTER - OTHER PAGE
 Route::get('/FAQ', function () {
