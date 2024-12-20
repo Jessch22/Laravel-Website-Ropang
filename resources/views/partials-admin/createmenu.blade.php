@@ -19,12 +19,12 @@
                 <div class="form-group">
                     <label for="category">Category</label>
                     <select class="form-control" id="category" name="category" required>
-                      <option value="Roti">Roti</option>
-                      <option value="Indomie">Indomie</option>
-                      <option value="Nasi">Nasi</option>
-                      <option value="Pisang">Pisang</option>
-                      <option value="Ayam">Ayam</option>
-                      <option value="Lainnya">Lainnya</option>
+                      <option value="roti">Roti</option>
+                      <option value="indomie">Indomie</option>
+                      <option value="nasi">Nasi</option>
+                      <option value="pisang">Pisang</option>
+                      <option value="ayam">Ayam</option>
+                      <option value="lainnya">Lainnya</option>
                     </select>
                 </div>
                 <div class="form-group">

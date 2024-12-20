@@ -13,10 +13,10 @@
             <a href="/#menu" onclick="continueShopping()" class="back-link">← Continue Shopping</a>
             <h2>Keranjang</h2>
             <div class="cart-items">
-                @if(session('cart'))
-                    @foreach(session('cart') as $id => $details)
+                @if(!empty($cart))
+                    @foreach($cart as $id => $details)
                         <div class="cart-item" id="item-{{ $id }}">
-                            <img src="{{ $details['image'] }}" alt="{{ $details['name'] }}">
+                            <img src="{{ asset($details['image']) }}" alt="{{ $details['name'] }}">
                             <div class="item-details">
                                 <p><strong>{{ $details['name'] }}</strong></p>
                                 <p>{{ $details['description'] }}</p>

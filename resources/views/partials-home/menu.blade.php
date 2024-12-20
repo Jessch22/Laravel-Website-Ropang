@@ -55,7 +55,7 @@
 
     <div class="row">
       <div class="col-lg-12 d-flex justify-content-center">
-        <a href="#" class="btn btn-see-cart btn-primary">See Cart</a>
+        <a href="/cart" class="btn btn-see-cart btn-primary">See Cart</a>
       </div>
     </div>
 
