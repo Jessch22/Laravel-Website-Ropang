@@ -36,7 +36,7 @@
           </div>
           <div class="menu-actions custom-flex-end">
             <button class="btn btn-primary btn-add-to-cart" onclick="addToCart({{ $menu->id }})">
-              <i class="fa fa-cart-plus"></i> Add to Cart
+              <i class="fa fa-cart-plus"></i>
             </button>
 
             </div>
