@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
     <li><a href="#menu">Menu</a></li>
     <li><a href="#book-a-table">Book A Table</a></li>
     <li><a href="#contact">Contact</a></li>
+
+    <li>
+      <a href="/cart" class="cart-icon">
+        <i class="fa fa-shopping-cart"></i>
+      </a>
+    </li>
   </ul>
   <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 </nav>
