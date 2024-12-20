@@ -28,9 +28,9 @@ function addToCart(menuId) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert('Item added to cart!');
+            alert('Item telah dimasukkan ke keranjang');
         } else {
-            alert('Failed to add item to cart.');
+            alert('Gagal masuk ke keranjang.');
         }
     })
     .catch(error => {
