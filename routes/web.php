@@ -36,8 +36,9 @@ Route::put('/admin/menus/{id}', [AdminMenuController::class, 'update'])->name('a
 // CART
 Route::post('/add-to-cart', [CartController::class, 'addToCart']);
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.index');
-Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-Route::post('/cart/update', [CartController::class, 'updateCart']);
+Route::post('/update-quantity', [CartController::class, 'updateQuantity']);
+Route::post('/remove-item', [CartController::class, 'removeItem']);
+
 
 //FOOTER - OTHER PAGE
 Route::get('/FAQ', function () {

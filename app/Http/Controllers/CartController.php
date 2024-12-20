@@ -43,24 +43,32 @@ class CartController extends Controller
         return view('other-page.cart', compact('cart', 'total'));
     }
 
-    public function checkout(Request $request)
+    public function updateQuantity(Request $request)
     {
-        $request->validate([
-            'card-name' => 'required|string|max:255',
-            'card-number' => 'required|digits_between:13,16',
-            'card-expiration' => 'required|regex:/^(0[1-9]|1[0-2])\/\d{2}$/', // Format MM/YY
-            'card-cvv' => 'required|digits:3',
-            'card-type' => 'required|string',
-        ]);
+        $cart = session('cart', []);
+        $itemId = $request->id;
+        $newQuantity = $request->quantity;
 
-        $cart = Session::get('cart', []);
-        $total = collect($cart)->sum(function ($item) {
-            return $item['price'] * $item['quantity'];
-        });
-
-        Session::forget('cart');
-
-        return redirect()->route('cart.index')->with('success', 'Checkout successful! Total: $' . number_format($total, 2));
-    }
+        if (isset($cart[$itemId])) {
+            $cart[$itemId]['quantity'] = $newQuantity;
+            session()->put('cart', $cart);
+            return response()->json(['success' => true, 'cart' => $cart]);
+        }
     
+        return response()->json(['success' => false]);
+    }
+
+    public function removeItem(Request $request)
+    {
+        $cart = session()->get('cart', []);
+        $itemId = $request->id;
+
+        if (isset($cart[$itemId])) {
+            unset($cart[$itemId]);
+            session()->put('cart', $cart);
+            return response()->json(['success' => true, 'cart' => $cart]);
+        }
+
+        return response()->json(['success' => false]);
+    }
 }
