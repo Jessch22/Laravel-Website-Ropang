@@ -8,32 +8,28 @@ use Illuminate\Support\Facades\Session;
 class CartController extends Controller
 {
     public function addToCart(Request $request)
-    {
-        $id = $request->id;
-        $menu = Menu::find($id);
-
-        if(!$menu) {
-            return response()->json(['error' => 'Menu item not found'], 404);
-        }
+{
+    try {
+        $validated = $request->validate([
+            'id' => 'required|integer',
+            'name' => 'required|string',
+            'price' => 'required|numeric',
+            'description' => 'nullable|string',
+            'image' => 'nullable|string',
+            'quantity' => 'required|integer|min:1',
+        ]);
 
         $cart = session()->get('cart', []);
-
-        if(isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        } else {
-            $cart[$id] = [
-                'name' => $menu->name,
-                'description' => $menu->description,
-                'price' => $menu->price,
-                'quantity' => 1,
-                'image' => $menu->image
-            ];
-        }
-
+        $cart[$validated['id']] = $validated;
         session()->put('cart', $cart);
 
-        return response()->json(['success' => 'Item added to cart']);
+        return response()->json(['success' => true], 200);
+    } catch (\Exception $e) {
+        \Log::error($e->getMessage());
+
+        return response()->json(['success' => false, 'message' => 'Failed to add item to cart.'], 500);
     }
+}
 
     public function viewCart()
     {
