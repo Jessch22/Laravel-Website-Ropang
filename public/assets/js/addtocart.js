@@ -49,11 +49,6 @@ function updateQuantity(itemId, increment) {
         removeItem(itemId);
         return;
     }
-
-    if (currentQuantity <= 0) {
-        removeItem(itemId);
-        return;
-    }
     
     fetch('/update-quantity', {
         method: 'POST',
