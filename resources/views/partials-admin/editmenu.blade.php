@@ -23,12 +23,12 @@
                 <div class="form-group">
                     <label for="category">Category</label>
                     <select class="form-control" id="category" name="category" required>
-                        <option value="roti" {{ $menu->category === 'roti' ? 'selected' : '' }}>Roti</option>
-                        <option value="indomie" {{ $menu->category === 'indomie' ? 'selected' : '' }}>Indomie</option>
-                        <option value="nasi" {{ $menu->category === 'nasi' ? 'selected' : '' }}>Nasi</option>
-                        <option value="pisang" {{ $menu->category === 'pisang' ? 'selected' : '' }}>Pisang</option>
-                        <option value="ayam" {{ $menu->category === 'ayam' ? 'selected' : '' }}>Ayam</option>
-                        <option value="lainnya" {{ $menu->category === 'lainnya' ? 'selected' : '' }}>Lainnya</option>
+                        <option value="Roti" {{ $menu->category === 'Roti' ? 'selected' : '' }}>Roti</option>
+                        <option value="Indomie" {{ $menu->category === 'Indomie' ? 'selected' : '' }}>Indomie</option>
+                        <option value="Nasi" {{ $menu->category === 'Nasi' ? 'selected' : '' }}>Nasi</option>
+                        <option value="Pisang" {{ $menu->category === 'Pisang' ? 'selected' : '' }}>Pisang</option>
+                        <option value="Ayam" {{ $menu->category === 'Ayam' ? 'selected' : '' }}>Ayam</option>
+                        <option value="Lainnya" {{ $menu->category === 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
                     </select>
                 </div>
                 <div class="form-group">

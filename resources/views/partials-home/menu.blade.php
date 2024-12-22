@@ -26,17 +26,18 @@
     <div class="row isotope-container" data-aos="fade-up" data-aos-delay="200">
       @isset($menus)
         @forelse($menus as $menu)
-          <div class="col-lg-6 menu-item isotope-item filter-{{ $menu->category }}">
-            <img src="{{ asset($menu->image) }}" class="menu-img" alt="">
-            <div class="menu-content">
-              <a>{{ $menu->name }}</a><span>{{ number_format($menu->price, 0, ',', '.') }}</span>
-            </div>
-            <div class="menu-description">
-                {{ $menu->description }}
-            </div>
-            <div class="menu-actions custom-flex-end">
-
-              <button class="btn btn-primary btn-add-to-cart" onclick="addToCart({{ $menu->id }})"><i class="fa fa-cart-plus"></i></button>
+        <div class="col-lg-6 menu-item isotope-item filter-{{ $menu->category }}" data-menu-id="{{ $menu->id }}">
+          <img src="{{ asset($menu->image) }}" class="menu-img" alt="">
+          <div class="menu-content">
+            <a>{{ $menu->name }}</a><span>{{ number_format($menu->price, 0, ',', '.') }}</span>
+          </div>
+          <div class="menu-description">
+              {{ $menu->description }}
+          </div>
+          <div class="menu-actions custom-flex-end">
+            <button class="btn btn-primary btn-add-to-cart" onclick="addToCart({{ $menu->id }})">
+              <i class="fa fa-cart-plus"></i>
+            </button>
 
             </div>
           </div>
@@ -61,5 +62,5 @@
   </div><!-- isotope-layout -->
 </section><!-- Menu Section -->
 
-<script src="assets/js/addtocart.js"></script>
+<script src="assets/js/addtocart.js" defer></script>
 
