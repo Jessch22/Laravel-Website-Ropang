@@ -81,7 +81,7 @@
           <i class="bi bi-geo-alt flex-shrink-0"></i>
           <div>
             <h3>Location</h3>
-            <p>Jl. Tj. Duren Utara IIIF No.32, Kec. Grogol Petamburan, Jakarta Barat</p>
+            <p>Jl. Tj. Duren Utara, Kec. Grogol Petamburan, Jakarta Barat</p>
           </div>
         </div><!-- End Info Item -->
 
@@ -97,7 +97,7 @@
           <i class="bi bi-telephone flex-shrink-0"></i>
           <div>
             <h3>Call Us</h3>
-            <p>+62 822 6004 5686</p>
+            <p>+62812345678</p>
           </div>
         </div><!-- End Info Item -->
 

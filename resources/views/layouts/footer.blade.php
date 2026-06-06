@@ -7,11 +7,7 @@
             <span class="sitename">Ritter Talent</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>Jl. Tj. Duren Utara IIIF No.32,</p>
-            <p>Kec. Grogol Petamburan, Jakarta Barat</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+62 8218 8517 436
-            </span></p>
-            <p><strong>Email:</strong> <span>marketing@rittertalent.com</span></p>
+            <p>Website ini merupakan prototipe yang dibuat khusus untuk keperluan Ujian Akhir Semester (UAS) mata kuliah Backend Programming di Universitas Tarumanagara dan BUKAN merupakan website atau layanan resmi dari Ritter Talent.</p>
           </div>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -24,11 +20,11 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="#about">About us</a></li>
             <li><a href="{{ route('faq') }}">FAQ</a></li>
-            <li><a href="{{ route('faq') }}">Terms of service</a></li>
-            <li><a href="{{ route('faq') }}">Privacy policy</a></li>
+            <li><a href="{{ route('faq') }}#terms-of-service">Terms of service</a></li>
+            <li><a href="{{ route('faq') }}#privacy-policy">Privacy policy</a></li>
           </ul>
         </div>
         
