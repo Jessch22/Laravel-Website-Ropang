@@ -2,12 +2,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Contact;
+use App\Models\Reservation;
 
-class ContactSeeder extends Seeder
+class ReservationSeeder extends Seeder
 {
     public function run()
     {
-        Contact::factory()->count(50)->create();
+        Reservation::factory()->count(50)->create();
     }
 }

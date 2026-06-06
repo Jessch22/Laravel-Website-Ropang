@@ -1,14 +1,15 @@
 @php
 use Illuminate\Support\Facades\Auth;
+$prefix = request()->is('/') ? '' : '/';
 @endphp
 
 <nav id="navmenu" class="navmenu">
   <ul>
-    <li><a href="#hero" class="active">Home<br></a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#book-a-table">Book A Table</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="{{ $prefix }}#hero" class="active">Home<br></a></li>
+    <li><a href="{{ $prefix }}#about">About</a></li>
+    <li><a href="{{ $prefix }}#menu">Menu</a></li>
+    <li><a href="{{ $prefix }}#book-a-table">Book A Table</a></li>
+    <li><a href="{{ $prefix }}#contact">Contact</a></li>
 
     <li>
       <a href="/cart" class="cart-icon">

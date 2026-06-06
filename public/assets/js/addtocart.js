@@ -25,17 +25,17 @@ function addToCart(menuId) {
             quantity: 1
         })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Item telah dimasukkan ke keranjang');
-        } else {
-            alert('Gagal masuk ke keranjang.');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Item telah dimasukkan ke keranjang');
+            } else {
+                alert('Gagal masuk ke keranjang.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
 
 // UPDATE QUANTITY
@@ -44,12 +44,12 @@ function updateQuantity(itemId, increment) {
     let currentQuantity = parseInt(quantityInput.value);
 
     currentQuantity += increment;
-    
+
     if (currentQuantity <= 0) {
         removeItem(itemId);
         return;
     }
-    
+
     fetch('/update-quantity', {
         method: 'POST',
         headers: {
@@ -61,25 +61,25 @@ function updateQuantity(itemId, increment) {
             quantity: currentQuantity
         })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            quantityInput.value = currentQuantity;
-            updateTotal();
-        } else {
-            alert('Failed to update quantity');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-    
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                quantityInput.value = currentQuantity;
+                updateTotal();
+            } else {
+                alert('Failed to update quantity');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
     const unitPrice = parseFloat(document.getElementById(`${itemId}-price`).dataset.unitPrice);
     const newPrice = unitPrice * currentQuantity;
     const formattedPrice = `Rp${newPrice.toLocaleString('id-ID')}`;
 
     document.getElementById(`${itemId}-price`).innerText = formattedPrice;
-    
+
     updateTotal();
 }
 
@@ -93,18 +93,18 @@ function removeItem(itemId) {
         },
         body: JSON.stringify({ id: itemId.split('-')[1] })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            document.getElementById(itemId).remove();
-            updateTotal();
-        } else {
-            alert('Failed to remove item');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById(itemId).remove();
+                updateTotal();
+            } else {
+                alert('Failed to remove item');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
 
 // UPDATE TOTAL
@@ -113,7 +113,7 @@ function updateTotal() {
     let total = 0;
 
     itemPrices.forEach(price => {
-        let priceValue = price.innerText.replace('Rp', '').replace('.', '').trim();
+        let priceValue = price.innerText.replace('Rp', '').replace(/\./g, '').trim();
         total += parseFloat(priceValue);
     });
 
