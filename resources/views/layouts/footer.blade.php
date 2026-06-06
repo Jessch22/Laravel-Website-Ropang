@@ -7,7 +7,7 @@
             <span class="sitename">Ritter Talent</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>Website ini merupakan prototipe yang dibuat khusus untuk keperluan Tugas Akademik (UAS) Universitas Tarumanagara dan BUKAN merupakan website atau layanan resmi dari Ritter Talent.</p>
+            <p>Website ini merupakan prototipe yang dibuat khusus untuk keperluan Ujian Akhir Semester (UAS) mata kuliah Backend Programming di Universitas Tarumanagara dan BUKAN merupakan website atau layanan resmi dari Ritter Talent.</p>
           </div>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
