@@ -4,7 +4,7 @@
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
           <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">marketing@rittertalent.com</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+62 8218 8517 436</span></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+62 8123 4567 890</span></i>
         </div>
       </div>
     </div>
