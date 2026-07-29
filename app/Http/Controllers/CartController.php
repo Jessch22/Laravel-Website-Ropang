@@ -8,28 +8,37 @@ use Illuminate\Support\Facades\Session;
 class CartController extends Controller
 {
     public function addToCart(Request $request)
-{
-    try {
-        $validated = $request->validate([
-            'id' => 'required|integer',
-            'name' => 'required|string',
-            'price' => 'required|numeric',
-            'description' => 'nullable|string',
-            'image' => 'nullable|string',
-            'quantity' => 'required|integer|min:1',
-        ]);
+    {
+        try {
+            $validated = $request->validate([
+                'id' => 'required|integer',
+                'quantity' => 'required|integer|min:1',
+            ]);
 
-        $cart = session()->get('cart', []);
-        $cart[$validated['id']] = $validated;
-        session()->put('cart', $cart);
+            // Ambil data dari database
+            $menuItem = \App\Models\MenuItem::findOrFail($validated['id']);
 
-        return response()->json(['success' => true], 200);
-    } catch (\Exception $e) {
-        \Log::error($e->getMessage());
+            $cart = session()->get('cart', []);
+            
+            // Simpan data asli dari database ke dalam session cart
+            $cart[$menuItem->id] = [
+                'id' => $menuItem->id,
+                'name' => $menuItem->name,
+                'price' => $menuItem->price,
+                'description' => $menuItem->description,
+                'image' => $menuItem->image,
+                'quantity' => $validated['quantity'],
+            ];
 
-        return response()->json(['success' => false, 'message' => 'Failed to add item to cart.'], 500);
+            session()->put('cart', $cart);
+
+            return response()->json(['success' => true], 200);
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+
+            return response()->json(['success' => false, 'message' => 'Failed to add item to cart.'], 500);
+        }
     }
-}
 
     public function viewCart()
     {
@@ -45,6 +54,11 @@ class CartController extends Controller
 
     public function updateQuantity(Request $request)
     {
+        $request->validate([
+            'id' => 'required|integer',
+            'quantity' => 'required|integer|min:1',
+        ]);
+
         $cart = session('cart', []);
         $itemId = $request->id;
         $newQuantity = $request->quantity;

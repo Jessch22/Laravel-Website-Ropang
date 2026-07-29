@@ -5,11 +5,6 @@ function addToCart(menuId) {
         return;
     }
 
-    const name = menuElement.querySelector('.menu-content a').textContent;
-    const price = parseInt(menuElement.querySelector('.menu-content span').textContent.replace(/\./g, ''));
-    const description = menuElement.querySelector('.menu-description').textContent;
-    const image = menuElement.querySelector('.menu-img').getAttribute('src');
-
     fetch('/add-to-cart', {
         method: 'POST',
         headers: {
@@ -18,10 +13,6 @@ function addToCart(menuId) {
         },
         body: JSON.stringify({
             id: menuId,
-            name: name,
-            price: price,
-            description: description,
-            image: image,
             quantity: 1
         })
     })
